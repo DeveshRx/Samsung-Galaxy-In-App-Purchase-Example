@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorShotBG">#f05e17</color>
+    <color name="colorShotBGClicked">#c05e17</color>
+    <color name="colorGetBulletBG">#f48970</color>
+    <color name="colorGetBulletBGClicked">#c48970</color>
+    <color name="colorUpgradeGunBG">#ff8448</color>
+    <color name="colorUpgradeGunBGClicked">#cf8448</color>
+    <color name="colorGetInfiniteBulletBG">#ff6c00</color>
+    <color name="colorGetInfiniteBulletBGClicked">#cf6c00</color>
+</resources>

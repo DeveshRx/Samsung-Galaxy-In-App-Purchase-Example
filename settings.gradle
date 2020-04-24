@@ -1,0 +1,3 @@
+rootProject.name='SamsungIAP'
+include ':app',':IAP6Helper'
+project(':IAP6Helper').projectDir = new File('app/libs/IAP6Helper')

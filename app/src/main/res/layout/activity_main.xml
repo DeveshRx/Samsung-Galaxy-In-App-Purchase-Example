@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/info_bg">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="220dp"
+            android:layout_height="45dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="52dp"
+            android:src="@drawable/txt_gunshooting" />
+
+        <ImageView
+            android:id="@+id/imageViewShot"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="34dp"
+            android:src="@drawable/shot_transition"
+            android:layout_alignTop="@+id/imageView"
+            android:layout_toRightOf="@+id/imageView"
+            android:layout_toEndOf="@+id/imageView" />
+
+        <ImageView
+            android:id="@+id/imageGun01"
+            android:layout_width="200dp"
+            android:layout_height="120dp"
+            android:layout_below="@+id/imageView"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/img_gun01" />
+
+        <ImageView
+            android:id="@+id/imageGun02"
+            android:layout_width="200dp"
+            android:layout_height="120dp"
+            android:layout_below="@+id/imageView"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/img_gun02"
+            android:visibility="invisible" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="180dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/imageGun01"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:src="@drawable/bg_bullet" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/bullet" />
+
+            <TextView
+                android:id="@+id/textInfiniteBullet"
+                android:layout_width="45dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:text="∞"
+                android:textColor="@android:color/white"
+                android:textSize="18dp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/textBulletCnt"
+                android:layout_width="20dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="45dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:text="5"
+                android:textColor="@android:color/white"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/textMaxBullet"
+                android:layout_width="25dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:text="/ 5"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="18dp" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/buttonProductsDetails"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/transparent"
+            android:onClick="onClick"
+            android:text="..."
+            android:textColor="@android:color/white"
+            android:textSize="13pt" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/btn_shot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/btn_bg_shot"
+        android:onClick="onClick"
+        android:layout_weight="2">
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/ico_shot" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="7"
+            android:textSize="12pt"
+            android:text="Shot"
+            android:textColor="@android:color/white"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+        <RelativeLayout
+            android:layout_width="12dp"
+            android:layout_height="19dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ico_next" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/btn_get_a_bullet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:background="@drawable/btn_bg_get_bullet"
+        android:onClick="onClick">
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/ico_get_a_bullet" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:ems="7"
+            android:text="Get a bullet"
+            android:textColor="@android:color/white"
+            android:textSize="12pt" />
+
+        <RelativeLayout
+            android:layout_width="12dp"
+            android:layout_height="19dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ico_next" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/btn_upgrade_the_gun"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/btn_bg_upgrade_gun"
+        android:onClick="onClick"
+        android:layout_weight="2">
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/ico_upgrade_the_gun" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="7"
+            android:text="Upgrade the gun"
+            android:textSize="12pt"
+            android:textColor="@android:color/white"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+        <RelativeLayout
+            android:layout_width="12dp"
+            android:layout_height="19dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ico_next" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/btn_get_infinite_bullets"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/btn_bg_get_infinite_bullet"
+        android:onClick="onClick"
+        android:layout_weight="2">
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/ico_get_infinite_bullet" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:ems="7"
+            android:textColor="@android:color/white"
+            android:text="Get infinite bullets"
+            android:textSize="12pt" />
+        <RelativeLayout
+            android:layout_width="12dp"
+            android:layout_height="19dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ico_next" />
+    </RelativeLayout>
+
+
+</LinearLayout>
