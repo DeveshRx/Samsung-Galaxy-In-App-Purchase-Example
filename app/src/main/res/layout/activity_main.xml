@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -24,11 +23,11 @@
             android:id="@+id/imageViewShot"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginTop="34dp"
-            android:src="@drawable/shot_transition"
             android:layout_alignTop="@+id/imageView"
+            android:layout_marginTop="34dp"
+            android:layout_toEndOf="@+id/imageView"
             android:layout_toRightOf="@+id/imageView"
-            android:layout_toEndOf="@+id/imageView" />
+            android:src="@drawable/shot_transition" />
 
         <ImageView
             android:id="@+id/imageGun01"
@@ -116,8 +115,8 @@
             android:id="@+id/buttonProductsDetails"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
             android:background="@android:color/transparent"
             android:onClick="onClick"
             android:text="..."
@@ -132,29 +131,32 @@
         android:id="@+id/btn_shot"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="2"
         android:background="@drawable/btn_bg_shot"
-        android:onClick="onClick"
-        android:layout_weight="2">
+        android:onClick="onClick">
+
         <RelativeLayout
             android:layout_width="40dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
             android:background="@drawable/ico_shot" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:ems="7"
-            android:textSize="12pt"
             android:text="Shot"
             android:textColor="@android:color/white"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:textSize="12pt" />
+
         <RelativeLayout
             android:layout_width="12dp"
             android:layout_height="19dp"
-            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
             android:background="@drawable/ico_next" />
     </RelativeLayout>
@@ -188,8 +190,8 @@
         <RelativeLayout
             android:layout_width="12dp"
             android:layout_height="19dp"
-            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
             android:background="@drawable/ico_next" />
     </RelativeLayout>
@@ -198,9 +200,9 @@
         android:id="@+id/btn_upgrade_the_gun"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="2"
         android:background="@drawable/btn_bg_upgrade_gun"
-        android:onClick="onClick"
-        android:layout_weight="2">
+        android:onClick="onClick">
 
         <RelativeLayout
             android:layout_width="40dp"
@@ -208,20 +210,22 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
             android:background="@drawable/ico_upgrade_the_gun" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:ems="7"
             android:text="Upgrade the gun"
-            android:textSize="12pt"
             android:textColor="@android:color/white"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:textSize="12pt" />
+
         <RelativeLayout
             android:layout_width="12dp"
             android:layout_height="19dp"
-            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
             android:background="@drawable/ico_next" />
     </RelativeLayout>
@@ -230,29 +234,32 @@
         android:id="@+id/btn_get_infinite_bullets"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="2"
         android:background="@drawable/btn_bg_get_infinite_bullet"
-        android:onClick="onClick"
-        android:layout_weight="2">
+        android:onClick="onClick">
+
         <RelativeLayout
             android:layout_width="40dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
             android:background="@drawable/ico_get_infinite_bullet" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:ems="7"
-            android:textColor="@android:color/white"
             android:text="Get infinite bullets"
+            android:textColor="@android:color/white"
             android:textSize="12pt" />
+
         <RelativeLayout
             android:layout_width="12dp"
             android:layout_height="19dp"
-            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
             android:background="@drawable/ico_next" />
     </RelativeLayout>

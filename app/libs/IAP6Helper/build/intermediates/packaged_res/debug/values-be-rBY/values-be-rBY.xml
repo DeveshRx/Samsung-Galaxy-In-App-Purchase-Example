@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dream_sapps_body_authenticating_ing">Праверка сапраўднасці\u2026</string>
+    <string name="dream_sapps_body_contact_customer_service_to_complete_your_purchase">Звярніцеся ў службу падтрымкі кліентаў, каб завяршыць пакупку.</string>
+    <string name="dream_sapps_body_your_purchase_is_complete">Пакупка завершана.</string>
+    <string name="mids_sapps_body_waiting_ing">Чаканне\u2026</string>
+    <string name="mids_sapps_header_samsung_in_app_purchase_abb">Samsung In-App Purchase</string>
+    <string name="mids_sapps_header_update_galaxy_apps">Абнавіць Galaxy Apps</string>
+    <string name="mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase">Даступна новая версія. Для завяршэння гэтай пакупкі Galaxy Apps будуць абноўлены да апошняй версіі.</string>
+    <string name="mids_sapps_pop_an_invalid_value_has_been_provided_for_samsung_in_app_purchase">Няправільнае значэнне было пададзена для Samsung In-App Purchase.</string>
+    <string name="mids_sapps_pop_payment_canceled">Аплата скасавана.</string>
+    <string name="mids_sapps_pop_to_purchase_items_you_need_to_install_samsung_in_app_purchase_install_q">Каб набываць тавары, вам неабходна ўсталяваць Samsung In-App Purchase. Усталяваць?</string>
+    <string name="mids_sapps_pop_unable_to_open_samsung_in_app_purchase_msg">Немагчыма адкрыць Samsung In-App Purchase. Перайдзіце ў Дазволы, затым дайце неабходныя дазволы і паўтарыце спробу.</string>
+    <string name="mids_sapps_pop_unknown_error_occurred">Адбылася невядомая памылка.</string>
+</resources>

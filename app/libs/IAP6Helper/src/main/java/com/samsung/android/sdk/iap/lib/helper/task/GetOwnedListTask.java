@@ -15,34 +15,30 @@ import java.util.ArrayList;
 /**
  * Asynchronized Task to load a list of items
  */
-public class GetOwnedListTask extends BaseTask
-{
-    private static final String TAG  = GetOwnedListTask.class.getSimpleName();
-    private String                  mProductType      = "";
-    ArrayList<OwnedProductVo>        mOwnedList  = new ArrayList<OwnedProductVo>();
+public class GetOwnedListTask extends BaseTask {
+    private static final String TAG = GetOwnedListTask.class.getSimpleName();
+    ArrayList<OwnedProductVo> mOwnedList = new ArrayList<OwnedProductVo>();
+    private String mProductType = "";
 
     public GetOwnedListTask
             (
-                    OwnedProduct    _baseService,
-                    IAPConnector    _iapConnector,
-                    Context         _context,
-                    String          _productType,
-                    boolean        _showErrorDialog,
-                    int             _mode
-            )
-    {
-        super(_baseService,_iapConnector,_context, _showErrorDialog, _mode);
+                    OwnedProduct _baseService,
+                    IAPConnector _iapConnector,
+                    Context _context,
+                    String _productType,
+                    boolean _showErrorDialog,
+                    int _mode
+            ) {
+        super(_baseService, _iapConnector, _context, _showErrorDialog, _mode);
         Log.v(TAG, "GetOwnedListTask");
-        mProductType       = _productType;
-        _baseService.setOwnedList( mOwnedList );
+        mProductType = _productType;
+        _baseService.setOwnedList(mOwnedList);
     }
 
     @Override
-    protected Boolean doInBackground( String... params )
-    {
+    protected Boolean doInBackground(String... params) {
         Log.d(TAG, "doInBackground: start");
-        try
-        {
+        try {
             int pagingIndex = 1;
             do {
                 Log.d(TAG, "doInBackground: pagingIndex = " + pagingIndex);
@@ -105,13 +101,11 @@ public class GetOwnedListTask extends BaseTask
                 }
                 // ============================================================
             } while (pagingIndex > 0);
-        }
-        catch( Exception e )
-        {
+        } catch (Exception e) {
             mErrorVo.setError(
                     HelperDefine.IAP_ERROR_COMMON,
                     mContext.getString(
-                            R.string.mids_sapps_pop_unknown_error_occurred ) );
+                            R.string.mids_sapps_pop_unknown_error_occurred));
 
             e.printStackTrace();
             return false;

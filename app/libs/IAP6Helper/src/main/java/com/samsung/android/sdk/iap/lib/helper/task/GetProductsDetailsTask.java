@@ -15,33 +15,29 @@ import java.util.ArrayList;
 /**
  * Asynchronized Task to load a list of items
  */
-public class GetProductsDetailsTask extends BaseTask
-{
-    private static final String TAG  = GetProductsDetailsTask.class.getSimpleName();
-    private String          mProductIds          = "";
-    ArrayList<ProductVo> mProductsDetails  = new ArrayList<ProductVo>();
+public class GetProductsDetailsTask extends BaseTask {
+    private static final String TAG = GetProductsDetailsTask.class.getSimpleName();
+    ArrayList<ProductVo> mProductsDetails = new ArrayList<ProductVo>();
+    private String mProductIds = "";
 
     public GetProductsDetailsTask
             (
                     ProductsDetails _baseService,
-                    IAPConnector    _iapConnector,
-                    Context         _context,
-                    String          _productIDs,
-                    boolean        _showErrorDialog,
-                    int             _mode
-            )
-    {
-        super(_baseService,_iapConnector,_context, _showErrorDialog, _mode);
-        mProductIds     = _productIDs;
+                    IAPConnector _iapConnector,
+                    Context _context,
+                    String _productIDs,
+                    boolean _showErrorDialog,
+                    int _mode
+            ) {
+        super(_baseService, _iapConnector, _context, _showErrorDialog, _mode);
+        mProductIds = _productIDs;
 
-        _baseService.setProductsDetails( mProductsDetails );
+        _baseService.setProductsDetails(mProductsDetails);
     }
 
     @Override
-    protected Boolean doInBackground( String... params )
-    {
-        try
-        {
+    protected Boolean doInBackground(String... params) {
+        try {
             int pagingIndex = 1;
             do {
                 // 1) call getProductsDetails() method of IAPService
@@ -80,9 +76,8 @@ public class GetProductsDetailsTask extends BaseTask
                         String nextPagingIndex = bundle.getString(HelperDefine.NEXT_PAGING_INDEX);
                         if (nextPagingIndex != null && nextPagingIndex.length() > 0) {
                             pagingIndex = Integer.parseInt(nextPagingIndex);
-                            Log.d(TAG,"PagingIndex = " + nextPagingIndex);
-                        }
-                        else
+                            Log.d(TAG, "PagingIndex = " + nextPagingIndex);
+                        } else
                             pagingIndex = -1;
 
                         ArrayList<String> productStringList =
@@ -106,14 +101,12 @@ public class GetProductsDetailsTask extends BaseTask
                     return true;
                 }
                 // ============================================================
-            }while (pagingIndex>0);
-        }
-        catch( Exception e )
-        {
+            } while (pagingIndex > 0);
+        } catch (Exception e) {
             mErrorVo.setError(
                     HelperDefine.IAP_ERROR_COMMON,
                     mContext.getString(
-                            R.string.mids_sapps_pop_unknown_error_occurred ) );
+                            R.string.mids_sapps_pop_unknown_error_occurred));
 
             e.printStackTrace();
             return false;

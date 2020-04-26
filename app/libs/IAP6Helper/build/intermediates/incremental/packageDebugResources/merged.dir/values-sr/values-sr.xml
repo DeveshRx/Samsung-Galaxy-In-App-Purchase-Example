@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dream_sapps_body_authenticating_ing">Potvrda identiteta\u2026</string>
+    <string name="dream_sapps_body_contact_customer_service_to_complete_your_purchase">Kontaktirajte korisničku službu da biste dovršili kupovinu.</string>
+    <string name="dream_sapps_body_your_purchase_is_complete">Kupovina je obavljena.</string>
+    <string name="mids_sapps_body_waiting_ing">Čekanje\u2026</string>
+    <string name="mids_sapps_header_samsung_in_app_purchase_abb">Samsung In-App Purchase</string>
+    <string name="mids_sapps_header_update_galaxy_apps">Ažurirajte Galaxy Apps</string>
+    <string name="mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase">Nova verzija je dostupna. Galaxy Apps će se ažurirati na najnoviju verziju kako bi se dovršila ova kupovina.</string>
+    <string name="mids_sapps_pop_an_invalid_value_has_been_provided_for_samsung_in_app_purchase">Neispravna vrednost je obezbeđena za uslugu Samsung In-App Purchase.</string>
+    <string name="mids_sapps_pop_payment_canceled">Plaćanje je otkazano.</string>
+    <string name="mids_sapps_pop_to_purchase_items_you_need_to_install_samsung_in_app_purchase_install_q">Da bi kupio/la stavke, moraš da instaliraš Samsung kupovinu iz aplikacije. Instalirati?</string>
+    <string name="mids_sapps_pop_unable_to_open_samsung_in_app_purchase_msg">Nije moguće otvoriti aplikaciju Samsung In-App Purchase. Idite na Dozvole, a zatim dozvolite potrebne dozvole i pokušajte ponovo.</string>
+    <string name="mids_sapps_pop_unknown_error_occurred">Došlo je do nepoznate greške.</string>
+</resources>

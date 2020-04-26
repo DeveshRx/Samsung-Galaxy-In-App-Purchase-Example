@@ -15,31 +15,15 @@ import com.samsung.android.sdk.iap.lib.listener.OnPaymentListener;
 public class HelperListenerManager {
     private static HelperListenerManager mInstance = null;
 
-    private OnGetProductsDetailsListener mOnGetProductsDetailsListener      = null;
-    private OnGetOwnedListListener     mOnGetOwnedListListener      = null;
-    private OnConsumePurchasedItemsListener     mOnConsumePurchasedItemsListener      = null;
-    private OnPaymentListener mOnPaymentListener     = null;
-
-    /**
-     * HelperListenerManager singleton reference method
-     */
-    public static HelperListenerManager getInstance( )
-    {
-        if( mInstance == null)
-            mInstance =  new HelperListenerManager();
-        return mInstance;
-    }
-
-    public static void destroy()
-    {
-        mInstance = null;
-    }
+    private OnGetProductsDetailsListener mOnGetProductsDetailsListener = null;
+    private OnGetOwnedListListener mOnGetOwnedListListener = null;
+    private OnConsumePurchasedItemsListener mOnConsumePurchasedItemsListener = null;
+    private OnPaymentListener mOnPaymentListener = null;
 
     /**
      * HelperListenerManager constructor
      */
-    private HelperListenerManager(  )
-    {
+    private HelperListenerManager() {
         mOnGetProductsDetailsListener = null;
         mOnGetOwnedListListener = null;
         mOnConsumePurchasedItemsListener = null;
@@ -47,65 +31,71 @@ public class HelperListenerManager {
     }
 
     /**
-     * Register {@link OnGetProductsDetailsListener} callback interface to be invoked
-     * when {@link GetProductsDetailsTask} has been finished.
-     * @param _onGetProductsDetailsListener
+     * HelperListenerManager singleton reference method
      */
-    public void setOnGetProductsDetailsListener( OnGetProductsDetailsListener _onGetProductsDetailsListener )
-    {
-        mOnGetProductsDetailsListener = _onGetProductsDetailsListener;
+    public static HelperListenerManager getInstance() {
+        if (mInstance == null)
+            mInstance = new HelperListenerManager();
+        return mInstance;
     }
 
-    public OnGetProductsDetailsListener getOnGetProductsDetailsListener( )
-    {
+    public static void destroy() {
+        mInstance = null;
+    }
+
+    public OnGetProductsDetailsListener getOnGetProductsDetailsListener() {
         return mOnGetProductsDetailsListener;
     }
 
+    /**
+     * Register {@link OnGetProductsDetailsListener} callback interface to be invoked
+     * when {@link GetProductsDetailsTask} has been finished.
+     *
+     * @param _onGetProductsDetailsListener
+     */
+    public void setOnGetProductsDetailsListener(OnGetProductsDetailsListener _onGetProductsDetailsListener) {
+        mOnGetProductsDetailsListener = _onGetProductsDetailsListener;
+    }
+
+    public OnGetOwnedListListener getOnGetOwnedListListener() {
+        return mOnGetOwnedListListener;
+    }
 
     /**
      * Register {@link OnGetOwnedListListener} callback interface to be invoked
      * when {@link GetOwnedListTask} has been finished.
+     *
      * @param _onGetOwnedListListener
      */
-    public void setOnGetOwnedListListener( OnGetOwnedListListener _onGetOwnedListListener )
-    {
+    public void setOnGetOwnedListListener(OnGetOwnedListListener _onGetOwnedListListener) {
         mOnGetOwnedListListener = _onGetOwnedListListener;
     }
 
-    public OnGetOwnedListListener getOnGetOwnedListListener( )
-    {
-        return mOnGetOwnedListListener;
+    public OnConsumePurchasedItemsListener getOnConsumePurchasedItemsListener() {
+        return mOnConsumePurchasedItemsListener;
     }
-
 
     /**
      * Register {@link OnConsumePurchasedItemsListener} callback interface to be invoked
      * when {@link ConsumePurchasedItemsTask} has been finished.
+     *
      * @param _onConsumePurchasedItemsListener
      */
-    public void setOnConsumePurchasedItemsListener( OnConsumePurchasedItemsListener _onConsumePurchasedItemsListener )
-    {
+    public void setOnConsumePurchasedItemsListener(OnConsumePurchasedItemsListener _onConsumePurchasedItemsListener) {
         mOnConsumePurchasedItemsListener = _onConsumePurchasedItemsListener;
     }
 
-    public OnConsumePurchasedItemsListener getOnConsumePurchasedItemsListener( )
-    {
-        return mOnConsumePurchasedItemsListener;
+    public OnPaymentListener getOnPaymentListener() {
+        return mOnPaymentListener;
     }
-
 
     /**
      * Register a callback interface to be invoked
      * when Purchase Process has been finished.
+     *
      * @param _onPaymentListener
      */
-    public void setOnPaymentListener( OnPaymentListener _onPaymentListener )
-    {
+    public void setOnPaymentListener(OnPaymentListener _onPaymentListener) {
         mOnPaymentListener = _onPaymentListener;
-    }
-
-    public OnPaymentListener getOnPaymentListener()
-    {
-        return mOnPaymentListener;
     }
 }

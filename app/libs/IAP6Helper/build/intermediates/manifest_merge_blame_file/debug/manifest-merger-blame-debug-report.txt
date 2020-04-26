@@ -1,0 +1,54 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.samsung.android.sdk.iap.lib"
+4    android:versionCode="600000001"
+5    android:versionName="6.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="18"
+8-->D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="26" />
+9-->D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml
+10
+11    <application>
+11-->D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:6:5-30:19
+12
+13        <!-- IAP 라이브러리 내 Activity 선언 시작 -->
+14
+15        <activity
+15-->D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:9:9-12:50
+16            android:name="com.samsung.android.sdk.iap.lib.activity.DialogActivity"
+16-->D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:10:13-83
+17            android:configChanges="orientation|screenSize"
+17-->D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:11:13-59
+18            android:theme="@style/Theme.Empty" />
+18-->D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:12:13-47
+19        <activity
+19-->D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:14:9-17:50
+20            android:name="com.samsung.android.sdk.iap.lib.activity.CheckPackageActivity"
+20-->D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:15:13-89
+21            android:configChanges="orientation|screenSize"
+21-->D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:16:13-59
+22            android:theme="@style/Theme.Empty" />
+22-->D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:17:13-47
+23        <activity
+23-->D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:19:9-22:56
+24            android:name="com.samsung.android.sdk.iap.lib.activity.AccountActivity"
+24-->D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:20:13-84
+25            android:configChanges="orientation|screenSize"
+25-->D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:21:13-59
+26            android:theme="@style/Theme.Transparent" />
+26-->D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:22:13-53
+27        <activity
+27-->D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:24:9-27:50
+28            android:name="com.samsung.android.sdk.iap.lib.activity.PaymentActivity"
+28-->D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:25:13-84
+29            android:configChanges="orientation|screenSize"
+29-->D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:26:13-59
+30            android:theme="@style/Theme.Empty" />
+30-->D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:27:13-47
+31
+32        <!-- IAP 라이브러리 내 Activity 선언 끝 -->
+33    </application>
+34
+35</manifest>

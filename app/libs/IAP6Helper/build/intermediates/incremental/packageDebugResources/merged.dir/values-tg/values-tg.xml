@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dream_sapps_body_authenticating_ing">Санҷиши ҳаққоният\u2026</string>
+    <string name="dream_sapps_body_contact_customer_service_to_complete_your_purchase">Барои хариди худро ба анҷом расондан, ба Маркази хизматрасонии муштариён муроҷиат кунед.</string>
+    <string name="dream_sapps_body_your_purchase_is_complete">Хариди шумо анҷом ёфт.</string>
+    <string name="mids_sapps_body_waiting_ing">Интизорӣ\u2026</string>
+    <string name="mids_sapps_header_samsung_in_app_purchase_abb">Samsung In-App Purchase</string>
+    <string name="mids_sapps_header_update_galaxy_apps">Навсозии Galaxy Apps</string>
+    <string name="mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase">Версияи нав дастрас аст. Барои анҷом додани харид Galaxy Apps то версияи охирин навсозӣ карда мешавад.</string>
+    <string name="mids_sapps_pop_an_invalid_value_has_been_provided_for_samsung_in_app_purchase">Барои Samsung In-App Purchase қимати нодуруст пешниҳод карда шуд</string>
+    <string name="mids_sapps_pop_payment_canceled">Пардохт бекор карда шуд</string>
+    <string name="mids_sapps_pop_to_purchase_items_you_need_to_install_samsung_in_app_purchase_install_q">Барои харидани ин ҷузъҳо шумо бояд Samsung In-App Purchase-ро насб кунед. Насб мекунед?</string>
+    <string name="mids_sapps_pop_unable_to_open_samsung_in_app_purchase_msg">Кушодани Samsung In-App Purchase ғайриимкон аст. Ба Иҷозатҳо гузашта, иҷозатҳои лозимро бидиҳед ва кӯшишро такрор кунед.</string>
+    <string name="mids_sapps_pop_unknown_error_occurred">Хатогии номаълум ба амал омад</string>
+</resources>

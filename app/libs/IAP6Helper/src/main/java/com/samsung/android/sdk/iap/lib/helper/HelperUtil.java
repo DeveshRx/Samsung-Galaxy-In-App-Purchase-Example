@@ -21,10 +21,12 @@ import com.samsung.android.sdk.iap.lib.vo.ErrorVo;
  */
 
 public class HelperUtil {
-    private static final String TAG  = HelperUtil.class.getSimpleName();
-    public static final String  SAMSUNGACCOUNT_PACKAGENAME = "com.osp.app.signin";
+    public static final String SAMSUNGACCOUNT_PACKAGENAME = "com.osp.app.signin";
+    private static final String TAG = HelperUtil.class.getSimpleName();
+
     /**
      * show dialog
+     *
      * @param _title
      * @param _message
      */
@@ -68,17 +70,16 @@ public class HelperUtil {
 
     /**
      * Check that Apps package is installed
+     *
      * @param _context Context
      * @return If it is true Billing package is installed. otherwise, not installed.
      */
-    static public boolean isInstalledAppsPackage( Context _context )
-    {
+    static public boolean isInstalledAppsPackage(Context _context) {
         PackageManager pm = _context.getPackageManager();
-        try
-        {
+        try {
             //// TODO: 2017-08-16 Make sure the packageInfo is normal and set the version code
             PackageInfo packageInfo = pm.getPackageInfo(HelperDefine.GALAXY_PACKAGE_NAME, PackageManager.GET_META_DATA);
-            int versionType = packageInfo.versionCode/100000000;
+            int versionType = packageInfo.versionCode / 100000000;
             Log.d(TAG, "isInstalledAppsPackage versionCode : " + packageInfo.versionCode);
             Log.d(TAG, "isInstalledAppsPackage versionType : " + versionType);
             switch (versionType) {
@@ -96,9 +97,7 @@ public class HelperUtil {
                 default:
                     return true;
             }
-        }
-        catch( PackageManager.NameNotFoundException e )
-        {
+        } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             return false;
         }
@@ -114,25 +113,21 @@ public class HelperUtil {
 
     /**
      * check validation of installed Billing package in your device
+     *
      * @param _context
      * @return If it is true Billing package is valid. otherwise, is not valid.
      */
-    static public boolean isValidAppsPackage( Context _context )
-    {
+    static public boolean isValidAppsPackage(Context _context) {
         boolean result = true;
-        try
-        {
+        try {
             Signature[] sigs = _context.getPackageManager().getPackageInfo(
                     HelperDefine.GALAXY_PACKAGE_NAME,
-                    PackageManager.GET_SIGNATURES ).signatures;
+                    PackageManager.GET_SIGNATURES).signatures;
             Log.d(TAG, "isValidAppsPackage: HASHCODE : " + sigs[0].hashCode());
-            if( sigs[0].hashCode() != HelperDefine.APPS_SIGNATURE_HASHCODE )
-            {
+            if (sigs[0].hashCode() != HelperDefine.APPS_SIGNATURE_HASHCODE) {
                 result = false;
             }
-        }
-        catch( Exception e )
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             result = false;
         }
@@ -142,19 +137,18 @@ public class HelperUtil {
 
     /**
      * SamsungAccount authentication
+     *
      * @param _activity
      */
-    static public boolean startAccountActivity( final Activity _activity )
-    {
-        ComponentName com = new ComponentName( HelperDefine.GALAXY_PACKAGE_NAME,
-                HelperDefine.IAP_PACKAGE_NAME + ".activity.AccountActivity" );
+    static public boolean startAccountActivity(final Activity _activity) {
+        ComponentName com = new ComponentName(HelperDefine.GALAXY_PACKAGE_NAME,
+                HelperDefine.IAP_PACKAGE_NAME + ".activity.AccountActivity");
         Context context = _activity.getApplicationContext();
 
         Intent intent = new Intent();
-        intent.setComponent( com );
+        intent.setComponent(com);
 
-        if(intent.resolveActivity(context.getPackageManager()) != null)
-        {
+        if (intent.resolveActivity(context.getPackageManager()) != null) {
             _activity.startActivityForResult(intent,
                     HelperDefine.REQUEST_CODE_IS_ACCOUNT_CERTIFICATION);
             return true;
@@ -165,17 +159,14 @@ public class HelperUtil {
     /**
      * go to about page of SamsungApps in order to install IAP package.
      */
-    static public void installAppsPackage( final BaseActivity _activity )
-    {
+    static public void installAppsPackage(final BaseActivity _activity) {
         // 1. When user click the OK button on the dialog,
         //    go to SamsungApps IAP Detail page
         // ====================================================================
 
-        Runnable OkBtnRunnable = new Runnable()
-        {
+        Runnable OkBtnRunnable = new Runnable() {
             @Override
-            public void run()
-            {
+            public void run() {
                 Context context = _activity.getApplicationContext();
 
                 // Link of SamsungApps for IAP install
@@ -185,21 +176,18 @@ public class HelperUtil {
                 // ------------------------------------------------------------
 
                 Intent intent = new Intent();
-                intent.setData( appsDeepLink );
+                intent.setData(appsDeepLink);
 
-                if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1 )
-                {
-                    intent.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK |
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
                             Intent.FLAG_ACTIVITY_CLEAR_TOP |
-                            Intent.FLAG_INCLUDE_STOPPED_PACKAGES );
-                }
-                else
-                {
-                    intent.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK |
-                            Intent.FLAG_ACTIVITY_CLEAR_TOP );
+                            Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+                } else {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+                            Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 }
 
-                if(intent.resolveActivity(context.getPackageManager()) != null) {
+                if (intent.resolveActivity(context.getPackageManager()) != null) {
                     context.startActivity(intent);
                 }
             }
@@ -209,28 +197,27 @@ public class HelperUtil {
         // 2. Set error in order to notify result to third-party application.
         // ====================================================================
         ErrorVo errorVo = new ErrorVo();
-        _activity.setErrorVo( errorVo );
+        _activity.setErrorVo(errorVo);
 
-        errorVo.setError( HelperDefine.IAP_PAYMENT_IS_CANCELED,
-                _activity.getString(R.string.mids_sapps_pop_payment_canceled) );
+        errorVo.setError(HelperDefine.IAP_PAYMENT_IS_CANCELED,
+                _activity.getString(R.string.mids_sapps_pop_payment_canceled));
         // ====================================================================
 
         // 3. Show information dialog
         // ====================================================================
-        HelperUtil.showIapDialogIfNeeded( _activity,
-                _activity.getString( R.string.mids_sapps_header_update_galaxy_apps ),
-                _activity.getString( R.string.mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase ),
+        HelperUtil.showIapDialogIfNeeded(_activity,
+                _activity.getString(R.string.mids_sapps_header_update_galaxy_apps),
+                _activity.getString(R.string.mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase),
                 true,
                 OkBtnRunnable,
-                true );
+                true);
         // ====================================================================
     }
 
-    static public int checkAppsPackage(Context _context)
-    {
+    static public int checkAppsPackage(Context _context) {
         // 1. If Billing Package is installed in your device
         // ====================================================================
-        if(HelperUtil.isInstalledAppsPackage(_context)) {
+        if (HelperUtil.isInstalledAppsPackage(_context)) {
             // 1) If Billing package installed in your device is valid
             // ================================================================
             if (!HelperUtil.isEnabledAppsPackage(_context)) {

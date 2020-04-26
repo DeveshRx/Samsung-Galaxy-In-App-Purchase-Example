@@ -10,10 +10,10 @@ import java.util.ArrayList;
  * Callback Interface used with
  * {@link GetOwnedListTask}
  */
-public interface OnGetPromotionEligibilityListener
-{
+public interface OnGetPromotionEligibilityListener {
     /**
      * Callback method to check promotion eligibility
+     *
      * @param _errorVo
      * @param _promotionEligibility
      */

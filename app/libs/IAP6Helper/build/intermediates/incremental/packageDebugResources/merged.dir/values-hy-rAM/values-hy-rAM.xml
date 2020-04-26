@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dream_sapps_body_authenticating_ing">Նույնականացվում է\u2026</string>
+    <string name="dream_sapps_body_contact_customer_service_to_complete_your_purchase">Ձեր գնումն ավարտելու համար դիմեք Հաճախորդների սպասարկման ծառայությանը:</string>
+    <string name="dream_sapps_body_your_purchase_is_complete">Ձեր գնումն ավարտվեց:</string>
+    <string name="mids_sapps_body_waiting_ing">Սպասում է\u2026</string>
+    <string name="mids_sapps_header_samsung_in_app_purchase_abb">Samsung In-App Purchase</string>
+    <string name="mids_sapps_header_update_galaxy_apps">Թարմացնել Galaxy Apps-ը</string>
+    <string name="mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase">Նոր վարկած է մատչելի: Galaxy Apps-ը կթարմացվի ամենավերջին վարկածով՝ այս գնումը կատարելու համար:</string>
+    <string name="mids_sapps_pop_an_invalid_value_has_been_provided_for_samsung_in_app_purchase">Անվավեր արժեք է տրամադրվել Samsung In-App Purchase-ի համար:</string>
+    <string name="mids_sapps_pop_payment_canceled">Վճարումը դադարեցվեց:</string>
+    <string name="mids_sapps_pop_to_purchase_items_you_need_to_install_samsung_in_app_purchase_install_q">Տարրեր գնելու համար հարկավոր է տեղադրել Samsung In-App Purchase. Տեղադրե՞լ:</string>
+    <string name="mids_sapps_pop_unable_to_open_samsung_in_app_purchase_msg">Անհնար է բացել Samsung In-App Purchase-ը: Գնացեք «Թույլտվություններ», տվեք պահանջվող թույլտվությունները և նորից փորձեք:</string>
+    <string name="mids_sapps_pop_unknown_error_occurred">Անհայտ սխալ տեղի ունեցավ:</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dream_sapps_body_authenticating_ing">प्रमाणित किया जा रहा है\u2026</string>
+    <string name="dream_sapps_body_contact_customer_service_to_complete_your_purchase">अपनी खरीदारी पूर्ण करने के लिए ग्राहक सेवा से संपर्क करें।</string>
+    <string name="dream_sapps_body_your_purchase_is_complete">आपकी खरीदी पूर्ण हो गई है।</string>
+    <string name="mids_sapps_body_waiting_ing">प्रतीक्षा कर रहा है\u2026</string>
+    <string name="mids_sapps_header_samsung_in_app_purchase_abb">सैमसंग इन-एप खरीद</string>
+    <string name="mids_sapps_header_update_galaxy_apps">Galaxy Apps अपडेट करें</string>
+    <string name="mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase">एक नया संस्करण उपलब्ध है। यह खरीदारी पूर्ण करने के लिए Galaxy Apps को नवीनतम संस्करण पर अपडेट किया जाएगा।</string>
+    <string name="mids_sapps_pop_an_invalid_value_has_been_provided_for_samsung_in_app_purchase">सैमसंग इन-एप परचेज के लिए कोई अमान्य मान प्रदान किया गया है।</string>
+    <string name="mids_sapps_pop_payment_canceled">भुगतान रद्द किया गया।</string>
+    <string name="mids_sapps_pop_to_purchase_items_you_need_to_install_samsung_in_app_purchase_install_q">मदें खरीदने के लिए, आपको सैमसंग इन-एप परचेस़ स्थापित करना आवश्यक हैं। स्थापित करें?</string>
+    <string name="mids_sapps_pop_unable_to_open_samsung_in_app_purchase_msg">सैमसंग इन-एप खरीदारी खोलने में असमर्थ। अनुमतियाँ पर जाएँ, फिर आवश्यक अनुमतियों को अनुमति दें और फिर से प्रयास करें।</string>
+    <string name="mids_sapps_pop_unknown_error_occurred">अज्ञात त्रुटि पाई गई</string>
+</resources>

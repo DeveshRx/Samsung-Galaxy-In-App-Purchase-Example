@@ -5,8 +5,7 @@ import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ConsumeVo
-{
+public class ConsumeVo {
     private static final String TAG = ConsumeVo.class.getSimpleName();
 
     private String mPurchaseId;
@@ -15,78 +14,63 @@ public class ConsumeVo
 
     private String mJsonString = "";
 
-    public ConsumeVo(String _jsonString )
-    {
+    public ConsumeVo(String _jsonString) {
         setJsonString(_jsonString);
-        try
-        {
-            JSONObject jObject = new JSONObject( _jsonString );
+        try {
+            JSONObject jObject = new JSONObject(_jsonString);
 
-            Log.i( TAG, jObject.toString(4) );
-            
-            setPurchaseId( jObject.optString( "mPurchaseId" ) );
-            setStatusString( jObject.optString( "mStatusString" ) );
-            setStatusCode( jObject.optInt( "mStatusCode" ) );
-        }
-        catch( JSONException e )
-        {
+            Log.i(TAG, jObject.toString(4));
+
+            setPurchaseId(jObject.optString("mPurchaseId"));
+            setStatusString(jObject.optString("mStatusString"));
+            setStatusCode(jObject.optInt("mStatusCode"));
+        } catch (JSONException e) {
             e.printStackTrace();
-        }
-        catch( Exception e )
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public String getPurchaseId()
-    {
+    public String getPurchaseId() {
         return mPurchaseId;
     }
 
-    public void setPurchaseId( String _paymentId )
-    {
+    public void setPurchaseId(String _paymentId) {
         mPurchaseId = _paymentId;
     }
 
-    public String getStatusString()
-    {
+    public String getStatusString() {
         return mStatusString;
     }
 
-    public void setStatusString( String _statusString )
-    {
+    public void setStatusString(String _statusString) {
         mStatusString = _statusString;
     }
 
-    public int getStatusCode()
-    {
+    public int getStatusCode() {
         return mStatusCode;
     }
 
-    public void setStatusCode( int _statusCode )
-    {
+    public void setStatusCode(int _statusCode) {
         mStatusCode = _statusCode;
     }
 
 
-    public String getJsonString()
-    {
+    public String getJsonString() {
         return mJsonString;
     }
 
-    public void setJsonString( String _jsonString )
-    {
+    public void setJsonString(String _jsonString) {
         mJsonString = _jsonString;
     }
 
-    public String dump()
-    {
+    public String dump() {
         String dump = null;
-        
-        dump = "PurchaseId       : " + getPurchaseId()        + "\n" +
-               "StatusString     : " + getStatusString()      + "\n" +
-               "StatusCode       : " + getStatusCode();
-        
+
+        dump = "PurchaseId       : " + getPurchaseId() + "\n" +
+                "StatusString     : " + getStatusString() + "\n" +
+                "StatusCode       : " + getStatusCode();
+
         return dump;
     }
 }

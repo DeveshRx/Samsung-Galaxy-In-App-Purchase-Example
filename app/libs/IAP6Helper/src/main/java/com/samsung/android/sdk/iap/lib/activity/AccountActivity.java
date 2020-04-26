@@ -14,27 +14,26 @@ import com.samsung.android.sdk.iap.lib.helper.IapHelper;
  */
 
 public class AccountActivity extends Activity {
-    private static final String  TAG = AccountActivity.class.getSimpleName();
+    private static final String TAG = AccountActivity.class.getSimpleName();
 
-    IapHelper                mIapHelper   = null;
+    IapHelper mIapHelper = null;
+
     @Override
-    protected void onCreate( Bundle savedInstanceState )
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mIapHelper = IapHelper.getInstance( this );
+        mIapHelper = IapHelper.getInstance(this);
         // ====================================================================
         // 1. If IAP package is installed and valid, start SamsungAccount
         //    authentication activity to start purchase.
         // ====================================================================
-        Log.i( TAG, "Samsung Account Login..." );
-        HelperUtil.startAccountActivity( this );
+        Log.i(TAG, "Samsung Account Login...");
+        HelperUtil.startAccountActivity(this);
         // ====================================================================
     }
 
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy() {
         super.onDestroy();
     }
 
@@ -55,12 +54,12 @@ public class AccountActivity extends Activity {
                             mIapHelper.bindIapService();
                         }
                     };
-                    if(runProcess!=null)
+                    if (runProcess != null)
                         runProcess.run();
                     else
                         mIapHelper.dispose();
                     finish();
-                    overridePendingTransition(0,0);
+                    overridePendingTransition(0, 0);
                     // --------------------------------------------------------
                 }
                 // ------------------------------------------------------------

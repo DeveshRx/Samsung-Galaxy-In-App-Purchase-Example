@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dream_sapps_body_authenticating_ing">စစ်မှန်ကြောင်းအထောက်အထားစစ်ဆေးနေသည်\u2026</string>
+    <string name="dream_sapps_body_contact_customer_service_to_complete_your_purchase">ဝယ်ယူမှု ပြီးမြောက်စေရန် ဖောက်သည်ဝန်ဆောင်မှုသို့ ဆက်သွယ်ပါ။</string>
+    <string name="dream_sapps_body_your_purchase_is_complete">သင့် ဝယ်ယူမှု ပြီးသွားပါပြီ။</string>
+    <string name="mids_sapps_body_waiting_ing">စောင့်နေဆဲ\u2026</string>
+    <string name="mids_sapps_header_samsung_in_app_purchase_abb">Samsung In-App ဝယ်ယူမှု</string>
+    <string name="mids_sapps_header_update_galaxy_apps">Galaxy Apps ကို အပ်ဒိတ်လုပ်ပါ</string>
+    <string name="mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase">ဗားရှင်း အသစ်တစ်ခု အရန်သင့် ရနိုင်ပါသည်။ ဤဝယ်ယူမှု ပြီးမြောက်စေရန် Galaxy Apps ကို နောက်ဆုံးထုတ် ဗားရှင်းသို့ အပ်ဒိတ်လုပ်ပါလိမ့်မည်။</string>
+    <string name="mids_sapps_pop_an_invalid_value_has_been_provided_for_samsung_in_app_purchase">An invalid value has been provided for Samsung In-App Purchase.</string>
+    <string name="mids_sapps_pop_payment_canceled">ပေးချေမှု ပယ်ဖျက်ထားသည်။</string>
+    <string name="mids_sapps_pop_to_purchase_items_you_need_to_install_samsung_in_app_purchase_install_q">To purchase items, you need to install Samsung In-App Purchase. Install?</string>
+    <string name="mids_sapps_pop_unable_to_open_samsung_in_app_purchase_msg">Samsung In-App ဝယ်ယူမှုကို ဖွင့်၍မရနိုင်ပါ။ ခွင့်ပြုချက်များသို့သွားပြီးနောက် လိုအပ်သည့် ခွင့်ပြုချက်များကို ခွင့်ပြုပြီး ထပ်မံကြိုးစားပါ။</string>
+    <string name="mids_sapps_pop_unknown_error_occurred">မသိသော အမှား ဖြစ်သွားသည်။</string>
+</resources>

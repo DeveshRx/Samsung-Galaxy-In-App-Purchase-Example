@@ -1,4 +1,4 @@
-package  com.samsung.android.sdk.iap.v6.sample1.adapter;
+package com.samsung.android.sdk.iap.v6.sample1.adapter;
 
 
 import android.util.Log;
@@ -9,20 +9,16 @@ import com.samsung.android.sdk.iap.lib.listener.OnPaymentListener;
 import com.samsung.android.sdk.iap.lib.vo.ConsumeVo;
 import com.samsung.android.sdk.iap.lib.vo.ErrorVo;
 import com.samsung.android.sdk.iap.lib.vo.PurchaseVo;
-import  com.samsung.android.sdk.iap.v6.sample1.constants.ItemDefine;
-import  com.samsung.android.sdk.iap.v6.sample1.activity.MainActivity;
+import com.samsung.android.sdk.iap.v6.sample1.activity.MainActivity;
+import com.samsung.android.sdk.iap.v6.sample1.constants.ItemDefine;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Callback Interface is called
  * when Initialization of IAPService has been finished in successfully.
  */
-public class PaymentAdapter extends ItemDefine implements OnPaymentListener, OnConsumePurchasedItemsListener
-
-{
+public class PaymentAdapter extends ItemDefine implements OnPaymentListener, OnConsumePurchasedItemsListener {
     /**
      * Callback method to be invoked
      * when Initialization of IAPService has been finished in successfully.
@@ -30,25 +26,23 @@ public class PaymentAdapter extends ItemDefine implements OnPaymentListener, OnC
 
     private final String TAG = PaymentAdapter.class.getSimpleName();
 
-    private MainActivity        mMainActivity = null;
-    private IapHelper    mIapHelper = null;
-    private String              mPassThroughParam    = "TEMP_PASS_THROUGH";
-    private String              mConsumedItemId = "";
+    private MainActivity mMainActivity = null;
+    private IapHelper mIapHelper = null;
+    private String mPassThroughParam = "TEMP_PASS_THROUGH";
+    private String mConsumedItemId = "";
 
     public PaymentAdapter
-    (
-            MainActivity _activity,
-            IapHelper _iapHelper
-    )
-    {
+            (
+                    MainActivity _activity,
+                    IapHelper _iapHelper
+            ) {
         mMainActivity = _activity;
         mIapHelper = _iapHelper;
     }
 
     @Override
-    public void onPayment(ErrorVo _errorVo, PurchaseVo _purchaseVo )
-    {
-        if( _errorVo != null) {
+    public void onPayment(ErrorVo _errorVo, PurchaseVo _purchaseVo) {
+        if (_errorVo != null) {
             if (_errorVo.getErrorCode() == IapHelper.IAP_ERROR_NONE) {
                 if (_purchaseVo != null) {
                     // ====================================================================
@@ -77,23 +71,20 @@ public class PaymentAdapter extends ItemDefine implements OnPaymentListener, OnC
                     Log.e(TAG, "onPayment > _purchaseVo: null");
             } else {
                 Log.e(TAG, "onPayment > ErrorCode [" + _errorVo.getErrorCode() + "]");
-                if(_errorVo.getErrorString()!=null)
+                if (_errorVo.getErrorString() != null)
                     Log.e(TAG, "onPayment > ErrorString[" + _errorVo.getErrorString() + "]");
             }
         }
 
         // ====================================================================
-        if( _errorVo != null )
-        {
-            Log.e( TAG, _errorVo.getErrorString() );
+        if (_errorVo != null) {
+            Log.e(TAG, _errorVo.getErrorString());
         }
     }
 
     @Override
-    public void onConsumePurchasedItems( ErrorVo _errorVo, ArrayList<ConsumeVo> _consumeList )
-    {
-        if(_errorVo != null)
-        {
+    public void onConsumePurchasedItems(ErrorVo _errorVo, ArrayList<ConsumeVo> _consumeList) {
+        if (_errorVo != null) {
             if (_errorVo.getErrorCode() == IapHelper.IAP_ERROR_NONE) {
                 try {
                     if (_consumeList != null) {
@@ -109,23 +100,20 @@ public class PaymentAdapter extends ItemDefine implements OnPaymentListener, OnC
                 } catch (Exception e) {
                     Log.e(TAG, "onConsumePurchasedItems: Exception " + e);
                 }
-            }
-            else {
-                Log.e(TAG, "onConsumePurchasedItems > ErrorCode [" + _errorVo.getErrorCode() +"]");
-                if(_errorVo.getErrorString()!=null)
+            } else {
+                Log.e(TAG, "onConsumePurchasedItems > ErrorCode [" + _errorVo.getErrorCode() + "]");
+                if (_errorVo.getErrorString() != null)
                     Log.e(TAG, "onConsumePurchasedItems > ErrorString[" + _errorVo.getErrorString() + "]");
             }
         }
-        mConsumedItemId="";
+        mConsumedItemId = "";
     }
 
-    public void setPassThroughParam(String _passThroughParam)
-    {
-        mPassThroughParam = _passThroughParam;
-    }
-
-    public String getPassThroughParam()
-    {
+    public String getPassThroughParam() {
         return mPassThroughParam;
+    }
+
+    public void setPassThroughParam(String _passThroughParam) {
+        mPassThroughParam = _passThroughParam;
     }
 }

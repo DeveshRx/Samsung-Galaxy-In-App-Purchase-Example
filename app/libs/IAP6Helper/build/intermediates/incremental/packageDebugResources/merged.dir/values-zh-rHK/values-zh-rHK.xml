@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dream_sapps_body_authenticating_ing">正在驗證\u2026</string>
+    <string name="dream_sapps_body_contact_customer_service_to_complete_your_purchase">請聯絡客戶服務以完成您的購買。</string>
+    <string name="dream_sapps_body_your_purchase_is_complete">您的購買已完成。</string>
+    <string name="mids_sapps_body_waiting_ing">請稍候\u2026</string>
+    <string name="mids_sapps_header_samsung_in_app_purchase_abb">Samsung In-App Purchase</string>
+    <string name="mids_sapps_header_update_galaxy_apps">更新 Galaxy Apps</string>
+    <string name="mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase">已有新版本可用。Galaxy Apps 將更新至最新版本以完成此購買。</string>
+    <string name="mids_sapps_pop_an_invalid_value_has_been_provided_for_samsung_in_app_purchase">提供給 Samsung In-App Purchase 的值無效。</string>
+    <string name="mids_sapps_pop_payment_canceled">付款已取消。</string>
+    <string name="mids_sapps_pop_to_purchase_items_you_need_to_install_samsung_in_app_purchase_install_q">若要購買項目，需安裝 Samsung In-App Purchase。安裝嗎？</string>
+    <string name="mids_sapps_pop_unable_to_open_samsung_in_app_purchase_msg">無法開啟 Samsung In-App Purchase。請前往 [權限]，然後允許權限並重試。</string>
+    <string name="mids_sapps_pop_unknown_error_occurred">發生未知錯誤。</string>
+</resources>

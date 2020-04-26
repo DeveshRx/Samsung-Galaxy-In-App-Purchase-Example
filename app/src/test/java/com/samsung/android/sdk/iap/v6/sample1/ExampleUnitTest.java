@@ -2,7 +2,7 @@ package com.samsung.android.sdk.iap.v6.sample1;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Example local unit test, which will execute on the development machine (host).

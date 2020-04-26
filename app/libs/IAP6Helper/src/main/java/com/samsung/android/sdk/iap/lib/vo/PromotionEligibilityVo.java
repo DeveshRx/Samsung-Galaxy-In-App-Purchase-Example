@@ -1,19 +1,16 @@
 package com.samsung.android.sdk.iap.lib.vo;
 
-import com.samsung.android.sdk.iap.lib.vo.util.VoUtil;
-
 import org.json.JSONObject;
 
-public class PromotionEligibilityVo
-{
+public class PromotionEligibilityVo {
     private static final String TAG = PromotionEligibilityVo.class.getSimpleName();
 
     private String itemId;
     private String pricing;
 
     private String jsonString;
-    public PromotionEligibilityVo(JSONObject _jsonObject  )
-    {
+
+    public PromotionEligibilityVo(JSONObject _jsonObject) {
         setJsonString(_jsonObject.toString());
 
         setItemId(_jsonObject.optString("itemID"));
@@ -23,6 +20,7 @@ public class PromotionEligibilityVo
     public String getItemId() {
         return itemId;
     }
+
     public void setItemId(String itemId) {
         this.itemId = itemId;
     }
@@ -38,16 +36,16 @@ public class PromotionEligibilityVo
     public String getJsonString() {
         return jsonString;
     }
+
     public void setJsonString(String jsonString) {
         this.jsonString = jsonString;
     }
 
-    public String dump()
-    {
+    public String dump() {
         String dump =
                 "itemID                              : " + getItemId() + "\n" +
-                "pricing                             : " + getPricing();
-        
+                        "pricing                             : " + getPricing();
+
         return dump;
     }
 }

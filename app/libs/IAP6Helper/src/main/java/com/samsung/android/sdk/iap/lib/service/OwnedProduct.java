@@ -15,16 +15,15 @@ import java.util.ArrayList;
  * Created by sangbum7.kim on 2018-02-28.
  */
 
-public class OwnedProduct extends BaseService{
-    private static final String TAG  = OwnedProduct.class.getSimpleName();
+public class OwnedProduct extends BaseService {
+    private static final String TAG = OwnedProduct.class.getSimpleName();
 
     private static OwnedProduct mInstance = null;
     private static OnGetOwnedListListener mOnGetOwnedListListener = null;
     private static String mProductType = "";
-    protected ArrayList<OwnedProductVo> mOwnedList          = null;
+    protected ArrayList<OwnedProductVo> mOwnedList = null;
 
-    public OwnedProduct(IapHelper _iapHelper, Context _context, OnGetOwnedListListener _onGetOwnedListListener)
-    {
+    public OwnedProduct(IapHelper _iapHelper, Context _context, OnGetOwnedListListener _onGetOwnedListListener) {
         super(_iapHelper, _context);
         mOnGetOwnedListListener = _onGetOwnedListListener;
     }
@@ -38,29 +37,26 @@ public class OwnedProduct extends BaseService{
     }
 
     @Override
-    public void runServiceProcess(){
+    public void runServiceProcess() {
         Log.v(TAG, "runServiceProcess");
-        if ( mIapHelper != null )
-        {
-            if(mIapHelper.safeGetOwnedList( OwnedProduct.this,
+        if (mIapHelper != null) {
+            if (mIapHelper.safeGetOwnedList(OwnedProduct.this,
                     mProductType,
-                    mIapHelper.getShowErrorDialog() ) == true) {
+                    mIapHelper.getShowErrorDialog()) == true) {
                 return;
             }
         }
-        mErrorVo.setError(HelperDefine.IAP_ERROR_INITIALIZATION,mContext.getString(R.string.mids_sapps_pop_unknown_error_occurred));
+        mErrorVo.setError(HelperDefine.IAP_ERROR_INITIALIZATION, mContext.getString(R.string.mids_sapps_pop_unknown_error_occurred));
         onEndProcess();
     }
 
     @Override
-    public void onReleaseProcess(){
+    public void onReleaseProcess() {
         Log.v(TAG, "OwnedProduct.onReleaseProcess");
         try {
             if (mOnGetOwnedListListener != null)
                 mOnGetOwnedListListener.onGetOwnedProducts(mErrorVo, mOwnedList);
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             Log.e(TAG, e.toString());
         }
     }

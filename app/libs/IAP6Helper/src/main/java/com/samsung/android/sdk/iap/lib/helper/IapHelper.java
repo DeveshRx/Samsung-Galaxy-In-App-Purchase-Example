@@ -20,8 +20,6 @@ import com.samsung.android.sdk.iap.lib.helper.task.GetPromotionEligibilityTask;
 import com.samsung.android.sdk.iap.lib.listener.OnConsumePurchasedItemsListener;
 import com.samsung.android.sdk.iap.lib.listener.OnGetOwnedListListener;
 import com.samsung.android.sdk.iap.lib.listener.OnGetProductsDetailsListener;
-import com.samsung.android.sdk.iap.lib.listener.OnGetPromotionEligibilityListener;
-import com.samsung.android.sdk.iap.lib.listener.OnIapBindListener;
 import com.samsung.android.sdk.iap.lib.listener.OnPaymentListener;
 import com.samsung.android.sdk.iap.lib.service.BaseService;
 import com.samsung.android.sdk.iap.lib.service.ConsumePurchasedItems;
@@ -32,46 +30,35 @@ import com.samsung.android.sdk.iap.lib.vo.ErrorVo;
 
 import java.util.ArrayList;
 
-public class IapHelper extends HelperDefine
-{
-    private static final String TAG  = IapHelper.class.getSimpleName();
-
+public class IapHelper extends HelperDefine {
+    private static final String TAG = IapHelper.class.getSimpleName();
+    private final static Object mOperationLock = new Object();
+    // ========================================================================
+    static boolean mOperationRunningFlag = false;
+    private static IapHelper mInstance = null;
     /**
      * When you release a application,
      * this Mode must be set to {@link HelperDefine#IAP_MODE_PRODUCTION}
      * Please double-check this mode before release.
      */
-    private int                   mMode = HelperDefine.IAP_MODE_PRODUCTION;
-    // ========================================================================
-
-    private Context mContext         = null;
-
-    private IAPConnector mIapConnector    = null;
-    private ServiceConnection mServiceConn     = null;
-
+    private int mMode = HelperDefine.IAP_MODE_PRODUCTION;
+    private Context mContext = null;
+    private IAPConnector mIapConnector = null;
+    private ServiceConnection mServiceConn = null;
     // AsyncTask for API
     // ========================================================================
-    private GetProductsDetailsTask mGetProductsDetailsTask        = null;
-    private GetOwnedListTask mGetOwnedListTask        = null;
-    private ConsumePurchasedItemsTask mConsumePurchasedItemsTask       = null;
-    private GetPromotionEligibilityTask mGetPromotionEligibilityTask        = null;
+    private GetProductsDetailsTask mGetProductsDetailsTask = null;
     // ========================================================================
-
+    private GetOwnedListTask mGetOwnedListTask = null;
+    private ConsumePurchasedItemsTask mConsumePurchasedItemsTask = null;
+    private GetPromotionEligibilityTask mGetPromotionEligibilityTask = null;
     private ArrayList<BaseService> mServiceQueue = new ArrayList<BaseService>();
     private BaseService mCurrentService = null;
-
     // API listener
     private HelperListenerManager mListenerInstance = null;
-
-    private static IapHelper mInstance = null;
-
     // State of IAP Service
     // ========================================================================
     private int mState = HelperDefine.STATE_TERM;
-    private final static Object mOperationLock = new Object();
-    static boolean mOperationRunningFlag = false;
-
-
     private boolean mShowErrorDialog = true;
 
 
@@ -83,53 +70,47 @@ public class IapHelper extends HelperDefine
 
     /**
      * IapHelper constructor
+     *
      * @param _context
      */
-    private IapHelper(Context _context)
-    {
-        _setContextAndMode( _context );
+    private IapHelper(Context _context) {
+        _setContextAndMode(_context);
         _setListenerInstance();
     }
 
     /**
      * IapHelper singleton reference method
+     *
      * @param _context Context
      */
-    public static IapHelper getInstance(Context _context )
-    {
+    public static IapHelper getInstance(Context _context) {
         Log.v(TAG, "IAP Helper version : " + HelperDefine.HELPER_VERSION);
-        if( null == mInstance )
-        {
-            Log.d(TAG, "getInstance new: mContext " + _context );
-            mInstance = new IapHelper( _context );
-        }
-        else
-        {
-            Log.d(TAG, "getInstance old: mContext " + _context );
-            mInstance._setContextAndMode( _context );
+        if (null == mInstance) {
+            Log.d(TAG, "getInstance new: mContext " + _context);
+            mInstance = new IapHelper(_context);
+        } else {
+            Log.d(TAG, "getInstance old: mContext " + _context);
+            mInstance._setContextAndMode(_context);
         }
 
         return mInstance;
     }
 
-    public void setOperationMode(OperationMode _mode)
-    {
-        if(_mode == OperationMode.OPERATION_MODE_TEST)
+    public void setOperationMode(OperationMode _mode) {
+        if (_mode == OperationMode.OPERATION_MODE_TEST)
             mMode = HelperDefine.IAP_MODE_TEST;
-        else if(_mode == OperationMode.OPERATION_MODE_TEST_FAILURE)
+        else if (_mode == OperationMode.OPERATION_MODE_TEST_FAILURE)
             mMode = HelperDefine.IAP_MODE_TEST_FAILURE;
         else
             mMode = HelperDefine.IAP_MODE_PRODUCTION;
     }
 
-    private void _setContextAndMode( Context _context )
-    {
+    private void _setContextAndMode(Context _context) {
         mContext = _context.getApplicationContext();
     }
 
-    private void _setListenerInstance()
-    {
-        if(mListenerInstance != null) {
+    private void _setListenerInstance() {
+        if (mListenerInstance != null) {
             mListenerInstance.destroy();
             mListenerInstance = null;
         }
@@ -142,17 +123,16 @@ public class IapHelper extends HelperDefine
     // 2. Binding for IAPService
     // ########################################################################
     // ########################################################################
+
     /**
      * bind to IAPService
      */
-    public void bindIapService()
-    {
-        Log.v(TAG,"Test Log bindIapService");
-        Log.d( TAG, "bindIapService()" );
+    public void bindIapService() {
+        Log.v(TAG, "Test Log bindIapService");
+        Log.d(TAG, "bindIapService()");
         // exit If already bound
         // ====================================================================
-        if( mState >= HelperDefine.STATE_BINDING )
-        {
+        if (mState >= HelperDefine.STATE_BINDING) {
             onBindIapFinished(HelperDefine.IAP_RESPONSE_RESULT_OK);
             return;
         }
@@ -160,27 +140,24 @@ public class IapHelper extends HelperDefine
 
         // Connection to IAP service
         // ====================================================================
-        mServiceConn = new ServiceConnection()
-        {
+        mServiceConn = new ServiceConnection() {
             @Override
-            public void onServiceDisconnected( ComponentName _name )
-            {
-                Log.d( TAG, "IAP Service Disconnected..." );
+            public void onServiceDisconnected(ComponentName _name) {
+                Log.d(TAG, "IAP Service Disconnected...");
 
-                mState        = HelperDefine.STATE_TERM;
+                mState = HelperDefine.STATE_TERM;
                 mIapConnector = null;
-                mServiceConn  = null;
+                mServiceConn = null;
             }
 
             @Override
             public void onServiceConnected
                     (
                             ComponentName _name,
-                            IBinder       _service
-                    )
-            {
-                Log.d( TAG, "IAP Service Connected..." );
-                mIapConnector = IAPConnector.Stub.asInterface( _service );
+                            IBinder _service
+                    ) {
+                Log.d(TAG, "IAP Service Connected...");
+                mIapConnector = IAPConnector.Stub.asInterface(_service);
 
                 if (mIapConnector != null) {
                     mState = HelperDefine.STATE_BINDING;
@@ -204,9 +181,7 @@ public class IapHelper extends HelperDefine
                 mState = HelperDefine.STATE_TERM;
                 onBindIapFinished(HelperDefine.IAP_RESPONSE_RESULT_UNAVAILABLE);
             }
-        }
-        catch (SecurityException e)
-        {
+        } catch (SecurityException e) {
             Log.e(TAG, "SecurityException : " + e);
             onBindIapFinished(HelperDefine.IAP_RESPONSE_RESULT_UNAVAILABLE);
         }
@@ -214,24 +189,20 @@ public class IapHelper extends HelperDefine
     }
 
 
-
-    protected void onBindIapFinished(int _result)
-    {
+    protected void onBindIapFinished(int _result) {
         Log.v(TAG, "onBindIapFinished");
-        if( _result == HelperDefine.IAP_RESPONSE_RESULT_OK )
-        {
-            if(getServiceProcess()!= null) {
+        if (_result == HelperDefine.IAP_RESPONSE_RESULT_OK) {
+            if (getServiceProcess() != null) {
                 getServiceProcess().runServiceProcess();
             }
         }
         // ============================================================
         // 2) If IAPService is not bound.
         // ============================================================
-        else
-        {
-            if(getServiceProcess()!= null) {
+        else {
+            if (getServiceProcess() != null) {
                 ErrorVo errorVo = new ErrorVo();
-                errorVo.setError(HelperDefine.IAP_ERROR_INITIALIZATION, mContext.getString(R.string.mids_sapps_pop_unknown_error_occurred)+"[Lib_Bind]");
+                errorVo.setError(HelperDefine.IAP_ERROR_INITIALIZATION, mContext.getString(R.string.mids_sapps_pop_unknown_error_occurred) + "[Lib_Bind]");
                 errorVo.setShowDialog(mShowErrorDialog);
                 getServiceProcess().setErrorVo(errorVo);
                 getServiceProcess().onEndProcess();
@@ -249,6 +220,7 @@ public class IapHelper extends HelperDefine
     ///////////////////////////////////////////////////////////////////////////
     // 3.1) getProductsDetails ///////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////
+
     /**
      * <PRE>
      * This load item list by starting productActivity in this library,
@@ -261,15 +233,12 @@ public class IapHelper extends HelperDefine
      */
     public void getProductsDetails
     (
-            String            _productIds,
+            String _productIds,
             OnGetProductsDetailsListener _onGetProductsDetailsListener
-    )
-    {
-        try
-        {
-            if( null == _onGetProductsDetailsListener )
-            {
-                throw new Exception( "_onGetProductsDetailsListener is null" );
+    ) {
+        try {
+            if (null == _onGetProductsDetailsListener) {
+                throw new Exception("_onGetProductsDetailsListener is null");
             }
 
             ProductsDetails productsDetails = new ProductsDetails(mInstance, mContext, _onGetProductsDetailsListener);
@@ -278,22 +247,17 @@ public class IapHelper extends HelperDefine
 
             IapStartInProgressFlag();
             int checkResult = HelperUtil.checkAppsPackage(mContext);
-            if(checkResult == HelperDefine.DIALOG_TYPE_NONE) {
+            if (checkResult == HelperDefine.DIALOG_TYPE_NONE) {
                 bindIapService();
-            }
-            else
-            {
-                Intent intent = new Intent( mContext, CheckPackageActivity.class );
-                intent.putExtra( "DialogType", checkResult );
-                intent.setFlags( Intent.FLAG_ACTIVITY_NEW_TASK );
+            } else {
+                Intent intent = new Intent(mContext, CheckPackageActivity.class);
+                intent.putExtra("DialogType", checkResult);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
             }
-        }
-        catch (IapInProgressException e) {
+        } catch (IapInProgressException e) {
             e.printStackTrace();
-        }
-        catch( Exception e )
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -304,21 +268,17 @@ public class IapHelper extends HelperDefine
     public boolean safeGetProductsDetails
     (
             ProductsDetails _baseService,
-            String          _productIDs,
-            boolean         _showErrorDialog
-    )
-    {
-        try
-        {
-            if( mGetProductsDetailsTask != null &&
-                    mGetProductsDetailsTask.getStatus() != Status.FINISHED )
-            {
-                mGetProductsDetailsTask.cancel( true );
+            String _productIDs,
+            boolean _showErrorDialog
+    ) {
+        try {
+            if (mGetProductsDetailsTask != null &&
+                    mGetProductsDetailsTask.getStatus() != Status.FINISHED) {
+                mGetProductsDetailsTask.cancel(true);
             }
-            if(mIapConnector == null || mContext == null) {
+            if (mIapConnector == null || mContext == null) {
                 return false;
-            }
-            else {
+            } else {
                 mGetProductsDetailsTask = new GetProductsDetailsTask(_baseService,
                         mIapConnector,
                         mContext,
@@ -328,9 +288,7 @@ public class IapHelper extends HelperDefine
                 mGetProductsDetailsTask.execute();
                 return true;
             }
-        }
-        catch( Exception e )
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
@@ -340,6 +298,7 @@ public class IapHelper extends HelperDefine
     ///////////////////////////////////////////////////////////////////////////
     // 3.2) getOwnedList ///////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////
+
     /**
      * <PRE>
      * This load owned product list by starting OwnedListActivity in this library,
@@ -352,16 +311,13 @@ public class IapHelper extends HelperDefine
      */
     public boolean getOwnedList
     (
-            String            _productType,
+            String _productType,
             OnGetOwnedListListener _onGetOwnedListListener
-    )
-    {
+    ) {
         Log.v(TAG, "getOwnedList");
-        try
-        {
-            if( null == _onGetOwnedListListener )
-            {
-                throw new Exception( "_onGetOwnedListListener is null" );
+        try {
+            if (null == _onGetOwnedListListener) {
+                throw new Exception("_onGetOwnedListListener is null");
             }
 
 
@@ -371,23 +327,17 @@ public class IapHelper extends HelperDefine
 
             IapStartInProgressFlag();
             int checkResult = HelperUtil.checkAppsPackage(mContext);
-            if(checkResult == HelperDefine.DIALOG_TYPE_NONE) {
+            if (checkResult == HelperDefine.DIALOG_TYPE_NONE) {
                 bindIapService();
-            }
-            else
-            {
-                Intent intent = new Intent( mContext, CheckPackageActivity.class );
-                intent.putExtra( "DialogType", checkResult );
-                intent.setFlags( Intent.FLAG_ACTIVITY_NEW_TASK );
+            } else {
+                Intent intent = new Intent(mContext, CheckPackageActivity.class);
+                intent.putExtra("DialogType", checkResult);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
             }
-        }
-        catch (IapInProgressException e)
-        {
+        } catch (IapInProgressException e) {
             e.printStackTrace();
-        }
-        catch( Exception e )
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
@@ -400,23 +350,19 @@ public class IapHelper extends HelperDefine
     public boolean safeGetOwnedList
     (
             OwnedProduct _baseService,
-            String          _productType,
-            boolean         _showErrorDialog
-    )
-    {
+            String _productType,
+            boolean _showErrorDialog
+    ) {
         Log.v(TAG, "safeGetOwnedList");
-        try
-        {
-            if( mGetOwnedListTask != null &&
-                    mGetOwnedListTask.getStatus() != Status.FINISHED )
-            {
-                mGetOwnedListTask.cancel( true );
+        try {
+            if (mGetOwnedListTask != null &&
+                    mGetOwnedListTask.getStatus() != Status.FINISHED) {
+                mGetOwnedListTask.cancel(true);
             }
 
-            if(mIapConnector == null || mContext == null) {
+            if (mIapConnector == null || mContext == null) {
                 return false;
-            }
-            else {
+            } else {
                 mGetOwnedListTask = new GetOwnedListTask(_baseService,
                         mIapConnector,
                         mContext,
@@ -427,9 +373,7 @@ public class IapHelper extends HelperDefine
                 mGetOwnedListTask.execute();
                 return true;
             }
-        }
-        catch( Exception e )
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
@@ -438,6 +382,7 @@ public class IapHelper extends HelperDefine
     ///////////////////////////////////////////////////////////////////////////
     // 3.3) consumePurchasedItems ///////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////
+
     /**
      * <PRE>
      * This load item list by starting OwnedListActivity in this library,
@@ -450,19 +395,16 @@ public class IapHelper extends HelperDefine
      */
     public boolean consumePurchasedItems
     (
-            String            _purchaseIds,
+            String _purchaseIds,
             OnConsumePurchasedItemsListener _onConsumePurchasedItemsListener
-    )
-    {
-        try
-        {
-            if( null == _onConsumePurchasedItemsListener )
-            {
-                throw new Exception( "_onConsumePurchasedItemsListener is null" );
+    ) {
+        try {
+            if (null == _onConsumePurchasedItemsListener) {
+                throw new Exception("_onConsumePurchasedItemsListener is null");
             }
 
-            if( null == _purchaseIds ) throw new Exception( "_purchaseIds is null" );
-            if( _purchaseIds.length() == 0 ) throw new Exception( "_purchaseIds is empty" );
+            if (null == _purchaseIds) throw new Exception("_purchaseIds is null");
+            if (_purchaseIds.length() == 0) throw new Exception("_purchaseIds is empty");
 
             ConsumePurchasedItems consumePurchasedItems = new ConsumePurchasedItems(mInstance, mContext, _onConsumePurchasedItemsListener);
             consumePurchasedItems.setPurchaseIds(_purchaseIds);
@@ -470,23 +412,17 @@ public class IapHelper extends HelperDefine
 
             IapStartInProgressFlag();
             int checkResult = HelperUtil.checkAppsPackage(mContext);
-            if(checkResult == HelperDefine.DIALOG_TYPE_NONE) {
+            if (checkResult == HelperDefine.DIALOG_TYPE_NONE) {
                 bindIapService();
-            }
-            else
-            {
-                Intent intent = new Intent( mContext, CheckPackageActivity.class );
-                intent.putExtra( "DialogType", checkResult );
-                intent.setFlags( Intent.FLAG_ACTIVITY_NEW_TASK );
+            } else {
+                Intent intent = new Intent(mContext, CheckPackageActivity.class);
+                intent.putExtra("DialogType", checkResult);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
             }
-        }
-        catch (IapInProgressException e)
-        {
+        } catch (IapInProgressException e) {
             e.printStackTrace();
-        }
-        catch( Exception e )
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
@@ -499,19 +435,16 @@ public class IapHelper extends HelperDefine
     public boolean safeConsumePurchasedItems
     (
             ConsumePurchasedItems _baseService,
-            String          _purchaseIds,
-            boolean         _showErrorDialog
-    )
-    {
-        try
-        {
-            if( mConsumePurchasedItemsTask != null &&
-                    mConsumePurchasedItemsTask.getStatus() != Status.FINISHED )
-            {
-                mConsumePurchasedItemsTask.cancel( true );
+            String _purchaseIds,
+            boolean _showErrorDialog
+    ) {
+        try {
+            if (mConsumePurchasedItemsTask != null &&
+                    mConsumePurchasedItemsTask.getStatus() != Status.FINISHED) {
+                mConsumePurchasedItemsTask.cancel(true);
             }
 
-            mConsumePurchasedItemsTask = new ConsumePurchasedItemsTask( _baseService,
+            mConsumePurchasedItemsTask = new ConsumePurchasedItemsTask(_baseService,
                     mIapConnector,
                     mContext,
                     _purchaseIds,
@@ -519,9 +452,7 @@ public class IapHelper extends HelperDefine
                     mMode);
             mConsumePurchasedItemsTask.execute();
             return true;
-        }
-        catch( Exception e )
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
@@ -531,65 +462,59 @@ public class IapHelper extends HelperDefine
     ///////////////////////////////////////////////////////////////////////////
     // 3.2) startPurchase / ///////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////
+
     /**
      * <PRE>
      * Start payment process by starting {@link PaymentActivity} in this library,
      * and result will be sent to {@link OnPaymentListener} interface.
      * To do that, PaymentActivity must be described in AndroidManifest.xml of third-party application
      * as below.
-     *
+     * <p>
      * &lt;activity android:name="com.sec.android.iap.lib.activity.PaymentActivity"
-     *      android:theme="@style/Theme.Empty"
-     *      android:configChanges="orientation|screenSize"/&gt;
+     * android:theme="@style/Theme.Empty"
+     * android:configChanges="orientation|screenSize"/&gt;
      * </PRE>
      *
      * @param _itemId
      * @param _passThroughParam
-     * @param _showSuccessDialog  If it is true, dialog of payment success is
-     *                            shown. otherwise it will not be shown.
+     * @param _showSuccessDialog If it is true, dialog of payment success is
+     *                           shown. otherwise it will not be shown.
      * @param _onPaymentListener
      */
     public boolean startPayment
     (
-        String              _itemId,
-        String              _passThroughParam,
-        boolean             _showSuccessDialog,
-        OnPaymentListener   _onPaymentListener
-    )
-    {
-        try
-        {
+            String _itemId,
+            String _passThroughParam,
+            boolean _showSuccessDialog,
+            OnPaymentListener _onPaymentListener
+    ) {
+        try {
 
-            if( null == _onPaymentListener )
-            {
-                throw new Exception( "OnPaymentListener is null" );
+            if (null == _onPaymentListener) {
+                throw new Exception("OnPaymentListener is null");
             }
-            if( _passThroughParam != null && _passThroughParam.getBytes().length > HelperDefine.PASSTHROGUH_MAX_LENGTH )
-                throw new Exception( "PassThroughParam length exceeded (MAX " + HelperDefine.PASSTHROGUH_MAX_LENGTH +")" );
+            if (_passThroughParam != null && _passThroughParam.getBytes().length > HelperDefine.PASSTHROGUH_MAX_LENGTH)
+                throw new Exception("PassThroughParam length exceeded (MAX " + HelperDefine.PASSTHROGUH_MAX_LENGTH + ")");
             IapStartInProgressFlag();
-            mListenerInstance.setOnPaymentListener( _onPaymentListener );
+            mListenerInstance.setOnPaymentListener(_onPaymentListener);
 
-            Intent intent = new Intent( mContext, PaymentActivity.class );
-            intent.putExtra( "ItemId", _itemId );
+            Intent intent = new Intent(mContext, PaymentActivity.class);
+            intent.putExtra("ItemId", _itemId);
             String encodedPassThroughParam = "";
-            if(_passThroughParam!=null)
-                encodedPassThroughParam = Base64.encodeToString(_passThroughParam.getBytes(),0);
-            intent.putExtra( "PassThroughParam", encodedPassThroughParam);
-            intent.putExtra( "ShowSuccessDialog", _showSuccessDialog );
-            intent.putExtra( "ShowErrorDialog", mShowErrorDialog );
-            intent.putExtra( "OperationMode", mMode );
+            if (_passThroughParam != null)
+                encodedPassThroughParam = Base64.encodeToString(_passThroughParam.getBytes(), 0);
+            intent.putExtra("PassThroughParam", encodedPassThroughParam);
+            intent.putExtra("ShowSuccessDialog", _showSuccessDialog);
+            intent.putExtra("ShowErrorDialog", mShowErrorDialog);
+            intent.putExtra("OperationMode", mMode);
             Log.d(TAG, "startPayment: " + mMode);
-            intent.setFlags( Intent.FLAG_ACTIVITY_NEW_TASK );
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-            mContext.startActivity( intent );
-        }
-        catch (IapInProgressException e)
-        {
+            mContext.startActivity(intent);
+        } catch (IapInProgressException e) {
             e.printStackTrace();
             return false;
-        }
-        catch( Exception e )
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
@@ -660,23 +585,19 @@ public class IapHelper extends HelperDefine
     public boolean safeGetPromotionEligibility
     (
             PromotionEligibility _baseService,
-            String          _productId,
-            boolean         _showErrorDialog
-    )
-    {
+            String _productId,
+            boolean _showErrorDialog
+    ) {
         Log.v(TAG, "safeGetPromotionEligibility");
-        try
-        {
-            if( mGetPromotionEligibilityTask != null &&
-                    mGetPromotionEligibilityTask.getStatus() != Status.FINISHED )
-            {
-                mGetPromotionEligibilityTask.cancel( true );
+        try {
+            if (mGetPromotionEligibilityTask != null &&
+                    mGetPromotionEligibilityTask.getStatus() != Status.FINISHED) {
+                mGetPromotionEligibilityTask.cancel(true);
             }
 
-            if(mIapConnector == null || mContext == null) {
+            if (mIapConnector == null || mContext == null) {
                 return false;
-            }
-            else {
+            } else {
                 mGetPromotionEligibilityTask = new GetPromotionEligibilityTask(_baseService,
                         mIapConnector,
                         mContext,
@@ -687,9 +608,7 @@ public class IapHelper extends HelperDefine
                 mGetPromotionEligibilityTask.execute();
                 return true;
             }
-        }
-        catch( Exception e )
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
@@ -700,84 +619,71 @@ public class IapHelper extends HelperDefine
     // 4. etc
     // ########################################################################
     // ########################################################################
-    
+
     /**
      * Stop running task, {@link GetProductsDetailsTask}, {@link ConsumePurchasedItemsTask}
      * or {@link GetOwnedListTask} } before dispose().
      */
-    private void stopTasksIfNotFinished()
-    {
-        if( mGetProductsDetailsTask != null )
-        {
-            if ( mGetProductsDetailsTask.getStatus() != Status.FINISHED )
-            {
+    private void stopTasksIfNotFinished() {
+        if (mGetProductsDetailsTask != null) {
+            if (mGetProductsDetailsTask.getStatus() != Status.FINISHED) {
                 Log.e(TAG, "stopTasksIfNotFinished: mGetProductsDetailsTask Status > " + mGetProductsDetailsTask.getStatus());
-                mGetProductsDetailsTask.cancel( true );
+                mGetProductsDetailsTask.cancel(true);
             }
         }
 
-        if( mGetOwnedListTask != null )
-        {
-            if ( mGetOwnedListTask.getStatus() != Status.FINISHED )
-            {
-                Log.e(TAG, "stopTasksIfNotFinished: mGetOwnedListTask Status > "+ mGetOwnedListTask.getStatus());
-                mGetOwnedListTask.cancel( true );
+        if (mGetOwnedListTask != null) {
+            if (mGetOwnedListTask.getStatus() != Status.FINISHED) {
+                Log.e(TAG, "stopTasksIfNotFinished: mGetOwnedListTask Status > " + mGetOwnedListTask.getStatus());
+                mGetOwnedListTask.cancel(true);
             }
         }
 
-        if( mConsumePurchasedItemsTask != null )
-        {
-            if ( mConsumePurchasedItemsTask.getStatus() != Status.FINISHED )
-            {
+        if (mConsumePurchasedItemsTask != null) {
+            if (mConsumePurchasedItemsTask.getStatus() != Status.FINISHED) {
                 Log.e(TAG, "stopTasksIfNotFinished: mConsumePurchasedItemsTask Status > " + mConsumePurchasedItemsTask.getStatus());
-                mConsumePurchasedItemsTask.cancel( true );
+                mConsumePurchasedItemsTask.cancel(true);
             }
         }
     }
-    
+
     /**
      * Unbind from IAPService and release used resources.
      */
-    public void dispose()
-    {
+    public void dispose() {
         stopTasksIfNotFinished();
-        
-        if( mContext != null && mServiceConn != null )
-        {
-            mContext.unbindService( mServiceConn );
+
+        if (mContext != null && mServiceConn != null) {
+            mContext.unbindService(mServiceConn);
         }
-        
-        mState         = HelperDefine.STATE_TERM;
-        mServiceConn   = null;
-        mIapConnector  = null;
+
+        mState = HelperDefine.STATE_TERM;
+        mServiceConn = null;
+        mIapConnector = null;
         clearServiceProcess();
         IapEndInProgressFlag();
     }
 
     void IapStartInProgressFlag() throws IapInProgressException {
         Log.d(TAG, "IapStartInProgressFlag: ");
-        synchronized (mOperationLock)
-        {
-            if(mOperationRunningFlag)
-            {
+        synchronized (mOperationLock) {
+            if (mOperationRunningFlag) {
                 throw new IapInProgressException("another operation is running");
             }
             mOperationRunningFlag = true;
 
         }
     }
+
     void IapEndInProgressFlag() {
         Log.d(TAG, "IapEndInProgressFlag: ");
-        synchronized (mOperationLock)
-        {
+        synchronized (mOperationLock) {
             mOperationRunningFlag = false;
         }
     }
 
-    protected static class IapInProgressException extends Exception {
-        public IapInProgressException( String message ) {
-            super(message);
-        }
+    public boolean getShowErrorDialog() {
+        return this.mShowErrorDialog;
     }
 
     /**
@@ -787,21 +693,18 @@ public class IapHelper extends HelperDefine
         this.mShowErrorDialog = _showErrorDialog;
     }
 
-    public boolean getShowErrorDialog()
-    {
-        return this.mShowErrorDialog;
-    }
-
-    public BaseService getServiceProcess()
-    {
+    public BaseService getServiceProcess() {
         return getServiceProcess(false);
     }
 
-    public BaseService getServiceProcess(boolean _nextProcess)
-    {
-        if(mCurrentService == null || _nextProcess) {
+    private void setServiceProcess(BaseService _baseService) {
+        mServiceQueue.add(_baseService);
+    }
+
+    public BaseService getServiceProcess(boolean _nextProcess) {
+        if (mCurrentService == null || _nextProcess) {
             mCurrentService = null;
-            if(mServiceQueue.size()>0) {
+            if (mServiceQueue.size() > 0) {
                 mCurrentService = mServiceQueue.get(0);
                 mServiceQueue.remove(0);
             }
@@ -809,19 +712,19 @@ public class IapHelper extends HelperDefine
         return mCurrentService;
     }
 
-    private void setServiceProcess(BaseService _baseService)
-    {
-        mServiceQueue.add(_baseService);
-    }
-
-    private void clearServiceProcess()
-    {
-        do{
-            if(mCurrentService!=null) {
+    private void clearServiceProcess() {
+        do {
+            if (mCurrentService != null) {
                 mCurrentService.releaseProcess();
             }
             mCurrentService = getServiceProcess(true);
-        }while (mCurrentService!=null);
+        } while (mCurrentService != null);
         mServiceQueue.clear();
+    }
+
+    protected static class IapInProgressException extends Exception {
+        public IapInProgressException(String message) {
+            super(message);
+        }
     }
 }

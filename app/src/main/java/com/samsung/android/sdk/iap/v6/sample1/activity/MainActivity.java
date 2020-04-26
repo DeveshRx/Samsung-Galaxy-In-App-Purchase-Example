@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,18 +14,16 @@ import android.widget.Toast;
 
 import com.samsung.android.sdk.iap.lib.helper.HelperDefine.OperationMode;
 import com.samsung.android.sdk.iap.lib.helper.IapHelper;
-import  com.samsung.android.sdk.iap.v6.sample1.adapter.OwnedListAdapter;
-import  com.samsung.android.sdk.iap.v6.sample1.adapter.PaymentAdapter;
-import  com.samsung.android.sdk.iap.v6.sample1.constants.ItemDefine;
-import  com.samsung.android.sdk.iap.v6.sample1.constants.ShardPrefConstants;
 import com.samsung.android.sdk.iap.v6.sample1.R;
+import com.samsung.android.sdk.iap.v6.sample1.adapter.OwnedListAdapter;
+import com.samsung.android.sdk.iap.v6.sample1.adapter.PaymentAdapter;
+import com.samsung.android.sdk.iap.v6.sample1.constants.ItemDefine;
+import com.samsung.android.sdk.iap.v6.sample1.constants.ShardPrefConstants;
 
-public class MainActivity extends Activity
-{
-    private final String TAG = MainActivity.class.getSimpleName();
+public class MainActivity extends Activity {
     private static OperationMode IAP_MODE = OperationMode.OPERATION_MODE_PRODUCTION;
-
-    private IapHelper  mIapHelper = null;
+    private final String TAG = MainActivity.class.getSimpleName();
+    private IapHelper mIapHelper = null;
     private PaymentAdapter mPaymentAdapter = null;
     private OwnedListAdapter mOwnedListAdapter = null;
 
@@ -45,11 +42,11 @@ public class MainActivity extends Activity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate( savedInstanceState );
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getPreferences();
 
-        mIapHelper = IapHelper.getInstance( this.getApplicationContext() );
+        mIapHelper = IapHelper.getInstance(this.getApplicationContext());
         mIapHelper.setOperationMode(IAP_MODE);
 
         mOwnedListAdapter = new OwnedListAdapter(this, mIapHelper);
@@ -59,44 +56,40 @@ public class MainActivity extends Activity
         createImage();
         getOwnedList();
     }
+
     @Override
-    protected void onStop()
-    {
+    protected void onStop() {
         super.onStop();
         setPreferences();
     }
 
 
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         super.onDestroy();
         mIapHelper.dispose();
     }
 
-    protected void createImage()
-    {
-        mTextBulletCnt       = (TextView) findViewById( R.id.textBulletCnt );
-        mTextMaxBullet       = (TextView) findViewById( R.id.textMaxBullet );
-        mTextInfiniteBullet = (TextView) findViewById( R.id.textInfiniteBullet );
+    protected void createImage() {
+        mTextBulletCnt = (TextView) findViewById(R.id.textBulletCnt);
+        mTextMaxBullet = (TextView) findViewById(R.id.textMaxBullet);
+        mTextInfiniteBullet = (TextView) findViewById(R.id.textInfiniteBullet);
         showBulletCount(mBulletCnt);
 
-        mGunImage1 = (ImageView) findViewById( R.id.imageGun01);
-        mGunImage2 = (ImageView) findViewById( R.id.imageGun02);
+        mGunImage1 = (ImageView) findViewById(R.id.imageGun01);
+        mGunImage2 = (ImageView) findViewById(R.id.imageGun02);
         showGunImage(mGunLevel);
 
-        mShotImage = (ImageView) findViewById( R.id.imageViewShot);
+        mShotImage = (ImageView) findViewById(R.id.imageViewShot);
     }
 
-    public void onClick( View _view )
-    {
-        if( null == _view )
-        {
+    public void onClick(View _view) {
+        if (null == _view) {
             return;
         }
-        switch( _view.getId() ) {
-            case R.id.btn_shot:
-            {
-                if(mBulletCnt==0 && mInfiniteBullet == false)
+        switch (_view.getId()) {
+            case R.id.btn_shot: {
+                if (mBulletCnt == 0 && mInfiniteBullet == false)
                     showToastMessage("You are out of bullets! Try get some!");
                 else {
                     minusBullet();
@@ -106,21 +99,18 @@ public class MainActivity extends Activity
                 }
                 break;
             }
-            case R.id.btn_get_a_bullet:
-            {
-                if(mBulletCnt>=5 || mInfiniteBullet == true)
+            case R.id.btn_get_a_bullet: {
+                if (mBulletCnt >= 5 || mInfiniteBullet == true)
                     showToastMessage("You already have max bullets!");
                 else
                     purchaseProduct(ItemDefine.ITEM_ID_CONSUMABLE);
                 break;
             }
-            case R.id.btn_upgrade_the_gun:
-            {
+            case R.id.btn_upgrade_the_gun: {
                 purchaseProduct(ItemDefine.ITEM_ID_NONCONSUMABLE);
                 break;
             }
-            case R.id.btn_get_infinite_bullets:
-            {
+            case R.id.btn_get_infinite_bullets: {
                 purchaseProduct(ItemDefine.ITEM_ID_SUBSCRIPTION);
                 break;
             }
@@ -138,7 +128,7 @@ public class MainActivity extends Activity
     }
 
     protected void purchaseProduct(String itemId) {
-        if(mPaymentAdapter != null) {
+        if (mPaymentAdapter != null) {
             mIapHelper.startPayment(itemId,
                     mPaymentAdapter.getPassThroughParam(),
                     true,
@@ -148,23 +138,21 @@ public class MainActivity extends Activity
 
     protected void getOwnedList() {
         Log.v(TAG, "getOwnedList");
-        if(mOwnedListAdapter != null) {
+        if (mOwnedListAdapter != null) {
             mIapHelper.getOwnedList(IapHelper.PRODUCT_TYPE_ALL,
                     mOwnedListAdapter);
         }
     }
 
-    public  void  plusBullet()
-    {
+    public void plusBullet() {
         if (mBulletCnt < 5) {
             mBulletCnt++;
             showBulletCount(mBulletCnt);
         }
     }
 
-    public  void  minusBullet()
-    {
-        if(mInfiniteBullet == false) {
+    public void minusBullet() {
+        if (mInfiniteBullet == false) {
             if (mBulletCnt > 0) {
                 mBulletCnt--;
                 showBulletCount(mBulletCnt);
@@ -172,26 +160,23 @@ public class MainActivity extends Activity
         }
     }
 
-    public void setGunLevel(int _gunLevel)
-    {
+    public void setGunLevel(int _gunLevel) {
         mGunLevel = _gunLevel;
         showGunImage(mGunLevel);
     }
 
-    public void setInfiniteBullet(boolean _infiniteBullet)
-    {
+    public void setInfiniteBullet(boolean _infiniteBullet) {
         mInfiniteBullet = _infiniteBullet;
         showBulletCount(mBulletCnt);
     }
 
-    protected void setPreferences()
-    {
-            SharedPreferences sharedPreferences = getSharedPreferences(ShardPrefConstants.FILE_NAME, Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putInt(ShardPrefConstants.KEY_BULLET_COUNT, mBulletCnt);
-            editor.putInt(ShardPrefConstants.KEY_GUN_LEVEL, mGunLevel);
-            editor.putBoolean(ShardPrefConstants.KEY_INFINITE_BULLET, mInfiniteBullet);
-            editor.apply();
+    protected void setPreferences() {
+        SharedPreferences sharedPreferences = getSharedPreferences(ShardPrefConstants.FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(ShardPrefConstants.KEY_BULLET_COUNT, mBulletCnt);
+        editor.putInt(ShardPrefConstants.KEY_GUN_LEVEL, mGunLevel);
+        editor.putBoolean(ShardPrefConstants.KEY_INFINITE_BULLET, mInfiniteBullet);
+        editor.apply();
     }
 
     protected void getPreferences() {
@@ -201,16 +186,13 @@ public class MainActivity extends Activity
         mInfiniteBullet = sharedPreferences.getBoolean(ShardPrefConstants.KEY_INFINITE_BULLET, false);
     }
 
-    protected void showBulletCount(int count)
-    {
+    protected void showBulletCount(int count) {
         String bulletCnt = "";
-        if(mInfiniteBullet == true)
-        {
+        if (mInfiniteBullet == true) {
             mTextBulletCnt.setVisibility(View.INVISIBLE);
             mTextMaxBullet.setVisibility(View.INVISIBLE);
             mTextInfiniteBullet.setVisibility(View.VISIBLE);
-        }
-        else if(count>=0 && count <= 5) {
+        } else if (count >= 0 && count <= 5) {
             bulletCnt = "" + count;
             mTextBulletCnt.setVisibility(View.VISIBLE);
             mTextMaxBullet.setVisibility(View.VISIBLE);
@@ -219,21 +201,17 @@ public class MainActivity extends Activity
         }
     }
 
-    protected void showGunImage(int level)
-    {
+    protected void showGunImage(int level) {
         if (level == 0) {
             mGunImage1.setVisibility(View.VISIBLE);
             mGunImage2.setVisibility(View.INVISIBLE);
-        }
-        else
-        {
+        } else {
             mGunImage1.setVisibility(View.INVISIBLE);
             mGunImage2.setVisibility(View.VISIBLE);
         }
     }
 
-    protected void showToastMessage(String message)
-    {
+    protected void showToastMessage(String message) {
         int duration = Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(this.getApplicationContext(), message, duration);
         toast.show();

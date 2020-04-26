@@ -1,0 +1,1 @@
+[{"outputType":{"type":"MERGED_MANIFESTS"},"apkData":{"type":"MAIN","splits":[],"versionCode":600000001,"versionName":"6.0.0","enabled":true,"outputFile":"IAP6Helper-debug.aar","fullName":"debug","baseName":"debug","dirName":""},"path":"../../library_manifest/debug/AndroidManifest.xml","properties":{"packageId":"com.samsung.android.sdk.iap.lib","split":""}}]

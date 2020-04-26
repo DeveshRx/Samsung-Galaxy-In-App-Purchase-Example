@@ -10,11 +10,11 @@ import java.util.ArrayList;
  * Callback Interface used with
  * {@link GetProductsDetailsTask}
  */
-public interface OnGetProductsDetailsListener
-{
+public interface OnGetProductsDetailsListener {
     /**
-     * Callback method to be invoked 
+     * Callback method to be invoked
      * when {@link GetProductsDetailsTask} has been finished.
+     *
      * @param _errorVO
      * @param _productList
      */

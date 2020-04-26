@@ -1,0 +1,71 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:1:1-32:12
+INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:1:1-32:12
+INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:1:1-32:12
+INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:1:1-32:12
+INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:1:1-32:12
+INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:1:1-32:12
+INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:1:1-32:12
+	package
+		ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:2:5-46
+		INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml
+		INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:4:5-32
+		INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml
+		INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:1:11-69
+	android:versionCode
+		ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:3:5-36
+		INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml
+		INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml
+application
+ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:6:5-30:19
+activity#com.samsung.android.sdk.iap.lib.activity.DialogActivity
+ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:9:9-12:50
+	android:configChanges
+		ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:11:13-59
+	android:theme
+		ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:12:13-47
+	android:name
+		ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:10:13-83
+activity#com.samsung.android.sdk.iap.lib.activity.CheckPackageActivity
+ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:14:9-17:50
+	android:configChanges
+		ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:16:13-59
+	android:theme
+		ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:17:13-47
+	android:name
+		ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:15:13-89
+activity#com.samsung.android.sdk.iap.lib.activity.AccountActivity
+ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:19:9-22:56
+	android:configChanges
+		ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:21:13-59
+	android:theme
+		ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:22:13-53
+	android:name
+		ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:20:13-84
+activity#com.samsung.android.sdk.iap.lib.activity.PaymentActivity
+ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:24:9-27:50
+	android:configChanges
+		ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:26:13-59
+	android:theme
+		ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:27:13-47
+	android:name
+		ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml:25:13-84
+uses-sdk
+INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml
+INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml
+INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml
+INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml
+		ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml
+		INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml
+		ADDED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml
+		INJECTED from D:\Android_Development\GitHub\Samsung-Galaxy-In-App-Purchase-Example\app\libs\IAP6Helper\src\main\AndroidManifest.xml

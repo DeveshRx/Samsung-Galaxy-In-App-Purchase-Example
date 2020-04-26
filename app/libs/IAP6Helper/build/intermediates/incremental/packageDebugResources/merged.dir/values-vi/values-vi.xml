@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dream_sapps_body_authenticating_ing">Đang xác thực\u2026</string>
+    <string name="dream_sapps_body_contact_customer_service_to_complete_your_purchase">Hãy liên hệ Dịch vụ khách hàng để hoàn tất mua hàng.</string>
+    <string name="dream_sapps_body_your_purchase_is_complete">Giao dịch mua của bạn đã hoàn tất.</string>
+    <string name="mids_sapps_body_waiting_ing">Đang chờ\u2026</string>
+    <string name="mids_sapps_header_samsung_in_app_purchase_abb">Mua hàng trong ứ.dụng Samsung</string>
+    <string name="mids_sapps_header_update_galaxy_apps">Cập nhật Galaxy Apps</string>
+    <string name="mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase">Đã có phiên bản mới. Galaxy Apps sẽ được cập nhật lên phiên bản mới nhất để hoàn tất giao dịch mua này.</string>
+    <string name="mids_sapps_pop_an_invalid_value_has_been_provided_for_samsung_in_app_purchase">Đã cung cấp một giá trị không hợp lệ cho hình thức Mua hàng trong ứng dụng Samsung.</string>
+    <string name="mids_sapps_pop_payment_canceled">Đã hủy thanh toán.</string>
+    <string name="mids_sapps_pop_to_purchase_items_you_need_to_install_samsung_in_app_purchase_install_q">Để mua hàng, bạn cần cài đặt Mua hàng trong ứng dụng Samsung. Cài đặt?</string>
+    <string name="mids_sapps_pop_unable_to_open_samsung_in_app_purchase_msg">Không thể mở Mua hàng trong ứng dụng Samsung. Đi đến Quyền, rồi cho phép các quyền cần thiết và thử lại.</string>
+    <string name="mids_sapps_pop_unknown_error_occurred">Xảy ra lỗi.</string>
+</resources>

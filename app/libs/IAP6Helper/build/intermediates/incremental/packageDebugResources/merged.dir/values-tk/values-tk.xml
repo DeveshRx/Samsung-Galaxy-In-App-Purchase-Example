@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dream_sapps_body_authenticating_ing">Hakykylygy barlanylýar\u2026</string>
+    <string name="dream_sapps_body_contact_customer_service_to_complete_your_purchase">Satyn alşyňyzy tamamlamak üçin, Müşderi hyzmatyna ýüz tutuň.</string>
+    <string name="dream_sapps_body_your_purchase_is_complete">Satyn aldyňyz.</string>
+    <string name="mids_sapps_body_waiting_ing">Garaşylýar\u2026</string>
+    <string name="mids_sapps_header_samsung_in_app_purchase_abb">Samsung In-App Purchase</string>
+    <string name="mids_sapps_header_update_galaxy_apps">Galaxy Apps-y täzele</string>
+    <string name="mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase">Täze wersiýa elýeterli. Bu satyn alşy tamamlamak üçin, Galaxy Apps-yň iň täze wersiýasy gurnalar.</string>
+    <string name="mids_sapps_pop_an_invalid_value_has_been_provided_for_samsung_in_app_purchase">Samsung Gollanmada Satyn alma üçin ýalňyş ulylyk berildi</string>
+    <string name="mids_sapps_pop_payment_canceled">Töleg ýatyryldy</string>
+    <string name="mids_sapps_pop_to_purchase_items_you_need_to_install_samsung_in_app_purchase_install_q">Elementleri satyn almak üçin Samsung Gollanmada Satyn almany guruň. Gurulsynmy?</string>
+    <string name="mids_sapps_pop_unable_to_open_samsung_in_app_purchase_msg">Samsung In-App Purchase-i açyp bolmaýar. Rugsatlar-a baryp, gerekli rugsatlary beriň we täzeden synanyşyň.</string>
+    <string name="mids_sapps_pop_unknown_error_occurred">Bilinmedik näsazlygy bar</string>
+</resources>

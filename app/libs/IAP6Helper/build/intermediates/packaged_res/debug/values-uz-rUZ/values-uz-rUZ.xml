@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dream_sapps_body_authenticating_ing">Haqiqiylik tekshirilmoqda\u2026</string>
+    <string name="dream_sapps_body_contact_customer_service_to_complete_your_purchase">Xaridni amalga oshirish uchun Mijozlarga xizmat ko‘rsatish markazi bilan bog‘laning.</string>
+    <string name="dream_sapps_body_your_purchase_is_complete">Xaridingiz amalga oshirildi.</string>
+    <string name="mids_sapps_body_waiting_ing">Kutilmoqda\u2026</string>
+    <string name="mids_sapps_header_samsung_in_app_purchase_abb">Samsung In-App Purchase</string>
+    <string name="mids_sapps_header_update_galaxy_apps">Galaxy Apps’ni yangilash</string>
+    <string name="mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase">Yangi versiya mavjud. Ushbu xaridni nihoyasiga yetkazish uchun Galaxy Apps eng oxirgi versiyaga yangilanadi.</string>
+    <string name="mids_sapps_pop_an_invalid_value_has_been_provided_for_samsung_in_app_purchase">Samsung In-App Purchase uchun mumkin bo‘lmagan qiymat taqdim etilgan.</string>
+    <string name="mids_sapps_pop_payment_canceled">To‘lov bekor qilindi.</string>
+    <string name="mids_sapps_pop_to_purchase_items_you_need_to_install_samsung_in_app_purchase_install_q">Elementlarni xarid qilish uchun Samsung In-App Purchase-ni o‘rnating. O‘rnatilsinmi?</string>
+    <string name="mids_sapps_pop_unable_to_open_samsung_in_app_purchase_msg">Samsung In-App Purchase’ni ochib bo‘lmaydi. Ruxsatlarga o‘ting, so‘ngra quyidagi ruxsatlarga ijozat bering va qayta urinib ko‘ring.</string>
+    <string name="mids_sapps_pop_unknown_error_occurred">Noma’lum xato yuz berdi.</string>
+</resources>

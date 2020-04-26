@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dream_sapps_body_authenticating_ing">Autenticando\u2026</string>
+    <string name="dream_sapps_body_contact_customer_service_to_complete_your_purchase">Contate o Serviço de atendimento ao cliente para concluir sua compra.</string>
+    <string name="dream_sapps_body_your_purchase_is_complete">Sua compra foi concluída.</string>
+    <string name="mids_sapps_body_waiting_ing">Aguardando\u2026</string>
+    <string name="mids_sapps_header_samsung_in_app_purchase_abb">Compra no aplic. Samsung</string>
+    <string name="mids_sapps_header_update_galaxy_apps">Atualizar o Galaxy Apps</string>
+    <string name="mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase">Uma nova versão está disponível. O Galaxy Apps será atualizado para a versão mais recente para concluir esta compra.</string>
+    <string name="mids_sapps_pop_an_invalid_value_has_been_provided_for_samsung_in_app_purchase">Um valor inválido foi fornecido para a Compra no aplicativo Samsung.</string>
+    <string name="mids_sapps_pop_payment_canceled">Pagamento cancelado.</string>
+    <string name="mids_sapps_pop_to_purchase_items_you_need_to_install_samsung_in_app_purchase_install_q">Para comprar itens, é necessário instalar o Compra no Aplicativo Samsung. Instalar?</string>
+    <string name="mids_sapps_pop_unable_to_open_samsung_in_app_purchase_msg">Não é possível abrir Compra no aplicativo Samsung. Vá para Permissões, autorize as permissões necessárias e tente novamente.</string>
+    <string name="mids_sapps_pop_unknown_error_occurred">Ocorreu erro desconhecido.</string>
+</resources>

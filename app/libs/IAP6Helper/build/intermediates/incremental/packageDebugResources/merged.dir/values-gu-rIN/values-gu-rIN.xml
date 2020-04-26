@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dream_sapps_body_authenticating_ing">પ્રમાણિત કરી રહ્યાં છીએ\u2026</string>
+    <string name="dream_sapps_body_contact_customer_service_to_complete_your_purchase">તમારી ખરીદી પૂર્ણ કરવા માટે ગ્રાહક સેવાનો સંપર્ક કરો.</string>
+    <string name="dream_sapps_body_your_purchase_is_complete">તમારી ખરીદી પૂર્ણ થઈ છે.</string>
+    <string name="mids_sapps_body_waiting_ing">પ્રતીક્ષા કરી રહ્યું છે\u2026</string>
+    <string name="mids_sapps_header_samsung_in_app_purchase_abb">સેમસંગ ઇન-એપ ખરીદી</string>
+    <string name="mids_sapps_header_update_galaxy_apps">Galaxy Apps અપડેટ કરો</string>
+    <string name="mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase">એક નવું સંસ્કરણ ઉપલબ્ધ છે. આ ખરીદી પૂર્ણ કરવા માટે Galaxy Apps ને નવીનતમ સંસ્કરણમાં અપડેટ કરવામાં આવશે.</string>
+    <string name="mids_sapps_pop_an_invalid_value_has_been_provided_for_samsung_in_app_purchase">સેમસંગ ઇન-એપ ખરીદી માટે એક અમાન્ય મૂલ્ય પ્રદાન કરવામાં આવ્યું છે.</string>
+    <string name="mids_sapps_pop_payment_canceled">ચૂકવણી રદ કરી.</string>
+    <string name="mids_sapps_pop_to_purchase_items_you_need_to_install_samsung_in_app_purchase_install_q">વસ્તુઓ ખરીદવા માટે, તમને સેમસંગ ઇન-એપ્લિકેશન પરચેઝ સ્થાપિત કરવાની આવશ્યકતા છે. સ્થાપિત કરીએ?</string>
+    <string name="mids_sapps_pop_unable_to_open_samsung_in_app_purchase_msg">સેમસંગ ઇન-એપ ખરીદી ખોલવામાં અસમર્થ. પરવાનગીઓ પર જાઓ, પછી નીચે આપેલ પરવાનગીઓની મંજૂરી આપો અને ફરી પ્રયાસ કરો.</string>
+    <string name="mids_sapps_pop_unknown_error_occurred">અજ્ઞાત ભૂલ થઈ છે.</string>
+</resources>

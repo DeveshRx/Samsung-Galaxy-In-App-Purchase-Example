@@ -7,8 +7,6 @@ import com.samsung.android.sdk.iap.lib.R;
 import com.samsung.android.sdk.iap.lib.helper.HelperDefine;
 import com.samsung.android.sdk.iap.lib.helper.IapHelper;
 import com.samsung.android.sdk.iap.lib.listener.OnGetProductsDetailsListener;
-import com.samsung.android.sdk.iap.lib.listener.OnGetProductsDetailsListener;
-import com.samsung.android.sdk.iap.lib.vo.ProductVo;
 import com.samsung.android.sdk.iap.lib.vo.ProductVo;
 
 import java.util.ArrayList;
@@ -17,16 +15,15 @@ import java.util.ArrayList;
  * Created by sangbum7.kim on 2018-02-28.
  */
 
-public class ProductsDetails extends BaseService{
-    private static final String TAG  = ProductsDetails.class.getSimpleName();
+public class ProductsDetails extends BaseService {
+    private static final String TAG = ProductsDetails.class.getSimpleName();
 
     private static ProductsDetails mInstance = null;
     private static OnGetProductsDetailsListener mOnGetProductsDetailsListener = null;
-    private static String          mProductIds          = "";
-    protected ArrayList<ProductVo> mProductsDetails          = null;
+    private static String mProductIds = "";
+    protected ArrayList<ProductVo> mProductsDetails = null;
 
-    public ProductsDetails(IapHelper _iapHelper, Context _context, OnGetProductsDetailsListener _onGetProductsDetailsListener)
-    {
+    public ProductsDetails(IapHelper _iapHelper, Context _context, OnGetProductsDetailsListener _onGetProductsDetailsListener) {
         super(_iapHelper, _context);
         mOnGetProductsDetailsListener = _onGetProductsDetailsListener;
     }
@@ -40,29 +37,26 @@ public class ProductsDetails extends BaseService{
     }
 
     @Override
-    public void runServiceProcess(){
+    public void runServiceProcess() {
         Log.v(TAG, "succeedBind");
-        if ( mIapHelper != null )
-        {
-            if(mIapHelper.safeGetProductsDetails( ProductsDetails.this,
+        if (mIapHelper != null) {
+            if (mIapHelper.safeGetProductsDetails(ProductsDetails.this,
                     mProductIds,
-                    mIapHelper.getShowErrorDialog() ) == true) {
+                    mIapHelper.getShowErrorDialog()) == true) {
                 return;
             }
         }
-        mErrorVo.setError(HelperDefine.IAP_ERROR_INITIALIZATION,mContext.getString(R.string.mids_sapps_pop_unknown_error_occurred));
+        mErrorVo.setError(HelperDefine.IAP_ERROR_INITIALIZATION, mContext.getString(R.string.mids_sapps_pop_unknown_error_occurred));
         onEndProcess();
     }
 
     @Override
-    public void onReleaseProcess(){
+    public void onReleaseProcess() {
         Log.v(TAG, "OwnedProduct.onEndProcess");
         try {
             if (mOnGetProductsDetailsListener != null)
                 mOnGetProductsDetailsListener.onGetProducts(mErrorVo, mProductsDetails);
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             Log.e(TAG, e.toString());
         }
     }

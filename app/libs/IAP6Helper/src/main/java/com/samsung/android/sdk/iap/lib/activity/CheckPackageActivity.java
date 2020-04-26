@@ -17,14 +17,12 @@ import com.samsung.android.sdk.iap.lib.helper.IapHelper;
  * Created by sangbum7.kim on 2018-03-07.
  */
 
-public class CheckPackageActivity extends Activity
-{
+public class CheckPackageActivity extends Activity {
     private static final String TAG = CheckPackageActivity.class.getSimpleName();
     private static boolean mFinishFlag = true;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState )
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mFinishFlag = true;
         Intent intent = getIntent();
@@ -33,7 +31,7 @@ public class CheckPackageActivity extends Activity
             if (extras != null) {
                 int DialogType = extras.getInt("DialogType");
                 switch (DialogType) {
-                    case HelperDefine.DIALOG_TYPE_INVALID_PACKAGE:{
+                    case HelperDefine.DIALOG_TYPE_INVALID_PACKAGE: {
                         // ------------------------------------------------------------
                         // show alert dialog if IAP Package is invalid
                         // ------------------------------------------------------------
@@ -48,7 +46,7 @@ public class CheckPackageActivity extends Activity
                         mFinishFlag = false;
                     }
                     break;
-                    case HelperDefine.DIALOG_TYPE_DISABLE_APPLICATION:{
+                    case HelperDefine.DIALOG_TYPE_DISABLE_APPLICATION: {
                         Runnable runnable = new Runnable() {
                             @Override
                             public void run() {
@@ -67,15 +65,13 @@ public class CheckPackageActivity extends Activity
                         mFinishFlag = false;
                     }
                     break;
-                    case HelperDefine.DIALOG_TYPE_APPS_DETAIL:{
+                    case HelperDefine.DIALOG_TYPE_APPS_DETAIL: {
                         // 1. When user click the OK button on the dialog,
                         //    go to SamsungApps IAP Detail page
                         // ====================================================================
-                        Runnable OkBtnRunnable = new Runnable()
-                        {
+                        Runnable OkBtnRunnable = new Runnable() {
                             @Override
-                            public void run()
-                            {
+                            public void run() {
                                 // Link of SamsungApps for IAP install
                                 // ------------------------------------------------------------
                                 Uri appsDeepLink = Uri.parse(
@@ -83,21 +79,18 @@ public class CheckPackageActivity extends Activity
                                 // ------------------------------------------------------------
 
                                 Intent intent = new Intent();
-                                intent.setData( appsDeepLink );
+                                intent.setData(appsDeepLink);
 
-                                if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1 )
-                                {
-                                    intent.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK |
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
                                             Intent.FLAG_ACTIVITY_CLEAR_TOP |
-                                            Intent.FLAG_INCLUDE_STOPPED_PACKAGES );
-                                }
-                                else
-                                {
-                                    intent.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK |
-                                            Intent.FLAG_ACTIVITY_CLEAR_TOP );
+                                            Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+                                } else {
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+                                            Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 }
 
-                                if(intent.resolveActivity(getPackageManager()) != null) {
+                                if (intent.resolveActivity(getPackageManager()) != null) {
                                     startActivity(intent);
                                 }
                             }
@@ -106,12 +99,12 @@ public class CheckPackageActivity extends Activity
 
                         // 2. Show information dialog
                         // ====================================================================
-                        HelperUtil.showIapDialogIfNeeded( this,
-                                getString( R.string.mids_sapps_header_update_galaxy_apps ),
-                                getString( R.string.mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase ),
+                        HelperUtil.showIapDialogIfNeeded(this,
+                                getString(R.string.mids_sapps_header_update_galaxy_apps),
+                                getString(R.string.mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase),
                                 true,
                                 OkBtnRunnable,
-                                true );
+                                true);
                         // ====================================================================
                         mFinishFlag = false;
                     }
@@ -119,14 +112,14 @@ public class CheckPackageActivity extends Activity
                 }
             }
         }
-        if(mFinishFlag)
+        if (mFinishFlag)
             finish();
     }
 
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         super.onDestroy();
-        Log.d(TAG,"onDestroy()");
+        Log.d(TAG, "onDestroy()");
         IapHelper.getInstance(getApplicationContext()).dispose();
     }
 }

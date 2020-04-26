@@ -21,8 +21,7 @@ public class DialogActivity extends Activity {
     private String mExtraString = "";
 
     @Override
-    protected void onCreate( Bundle savedInstanceState )
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         if (intent != null) {
@@ -44,36 +43,30 @@ public class DialogActivity extends Activity {
                     case HelperDefine.DIALOG_TYPE_UPGRADE: {
                         String message = extras.getString("Message");
                         mExtraString = extras.getString("ExtraString");
-                        if(mExtraString == null)
+                        if (mExtraString == null)
                             mExtraString = "";
 
                         // a) When user click the OK button on the dialog,
                         //    go to SamsungApps IAP Detail page.
                         // --------------------------------------------------------
-                        Runnable OkBtnRunnable = new Runnable()
-                        {
+                        Runnable OkBtnRunnable = new Runnable() {
                             @Override
-                            public void run()
-                            {
-                                if( true == TextUtils.isEmpty(
-                                        mExtraString ) )
-                                {
+                            public void run() {
+                                if (true == TextUtils.isEmpty(
+                                        mExtraString)) {
                                     return;
                                 }
 
                                 Intent intent = new Intent(Intent.ACTION_VIEW);
 
                                 intent.setData(
-                                        Uri.parse( mExtraString ) );
+                                        Uri.parse(mExtraString));
 
-                                intent.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK );
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-                                try
-                                {
-                                    startActivity( intent );
-                                }
-                                catch( ActivityNotFoundException e )
-                                {
+                                try {
+                                    startActivity(intent);
+                                } catch (ActivityNotFoundException e) {
                                     e.printStackTrace();
                                 }
                             }
@@ -82,12 +75,12 @@ public class DialogActivity extends Activity {
 
                         // b) Pop-up shows that the IAP package needs to be updated.
                         // --------------------------------------------------------
-                        HelperUtil.showIapDialogIfNeeded( this,
-                                getString( R.string.mids_sapps_header_samsung_in_app_purchase_abb ),
+                        HelperUtil.showIapDialogIfNeeded(this,
+                                getString(R.string.mids_sapps_header_samsung_in_app_purchase_abb),
                                 message,
                                 true,
                                 OkBtnRunnable,
-                                true );
+                                true);
                     }
                     break;
                 }
@@ -96,8 +89,8 @@ public class DialogActivity extends Activity {
     }
 
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         super.onDestroy();
-        Log.d(TAG,"onDestroy()");
+        Log.d(TAG, "onDestroy()");
     }
 }

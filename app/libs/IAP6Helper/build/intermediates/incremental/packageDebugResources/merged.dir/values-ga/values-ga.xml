@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dream_sapps_body_authenticating_ing">Fíordheimhniú\u2026</string>
+    <string name="dream_sapps_body_contact_customer_service_to_complete_your_purchase">Déan teagmháil le Seirbhís do Chustaiméirí le do cheannachán a chur i gcrích.</string>
+    <string name="dream_sapps_body_your_purchase_is_complete">Tá do cheannachán curtha i gcrích.</string>
+    <string name="mids_sapps_body_waiting_ing">Ag feitheamh\u2026</string>
+    <string name="mids_sapps_header_samsung_in_app_purchase_abb">Ceann. i bhF.chlár Samsung</string>
+    <string name="mids_sapps_header_update_galaxy_apps">Nuashonraigh Galaxy Apps</string>
+    <string name="mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase">Tá leagan nua ar fáil. Nuashonrófar Galaxy Apps chuig an leagan is déanaí leis an gceannachán seo a chur i gcrích.</string>
+    <string name="mids_sapps_pop_an_invalid_value_has_been_provided_for_samsung_in_app_purchase">Soláthraíodh luach neamhbhailí do Cheannach i bhFeidhmchlár Samsung</string>
+    <string name="mids_sapps_pop_payment_canceled">Íocaíocht curtha ar ceal.</string>
+    <string name="mids_sapps_pop_to_purchase_items_you_need_to_install_samsung_in_app_purchase_install_q">Tá Samsung In-App Purchase de dhíth ort le míreanna a cheannach. Suiteáil?</string>
+    <string name="mids_sapps_pop_unable_to_open_samsung_in_app_purchase_msg">Ní féidir Ceannach i bhFeidhmchlár Samsung a oscailt. Gabh chuig Ceadanna, ansin ceadaigh na ceadanna atá de dhíth agus triail arís.</string>
+    <string name="mids_sapps_pop_unknown_error_occurred">Tharla earráid anaithnid</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dream_sapps_body_authenticating_ing">Mengesahkan\u2026</string>
+    <string name="dream_sapps_body_contact_customer_service_to_complete_your_purchase">Hubungi Perkhidmatan Pelanggan untuk menyelesaikan pembelian anda.</string>
+    <string name="dream_sapps_body_your_purchase_is_complete">Pembelian anda telah selesai.</string>
+    <string name="mids_sapps_body_waiting_ing">Menunggu\u2026</string>
+    <string name="mids_sapps_header_samsung_in_app_purchase_abb">Samsung In-App Purchase</string>
+    <string name="mids_sapps_header_update_galaxy_apps">Kemas kini Galaxy Apps</string>
+    <string name="mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase">Versi baru tersedia. Galaxy Apps akan dikemas kini ke versi terkini untuk menyelesaikan pembelian ini.</string>
+    <string name="mids_sapps_pop_an_invalid_value_has_been_provided_for_samsung_in_app_purchase">Nilai tidak sah telah disediakan untuk Samsung In-App Purchase.</string>
+    <string name="mids_sapps_pop_payment_canceled">Pembayaran dibatalkan.</string>
+    <string name="mids_sapps_pop_to_purchase_items_you_need_to_install_samsung_in_app_purchase_install_q">Untuk membeli item, anda perlu memasang Belian Dalam Aplikasi Samsung. Pasang?</string>
+    <string name="mids_sapps_pop_unable_to_open_samsung_in_app_purchase_msg">Tidak dapat membuka Samsung In-App Purchase. Pergi ke Kebenaran, kemudian berikan kebenaran yang diperlukan dan cuba lagi.</string>
+    <string name="mids_sapps_pop_unknown_error_occurred">Ralat tidak diketahui berlaku.</string>
+</resources>

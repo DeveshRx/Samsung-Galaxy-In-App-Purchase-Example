@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dream_sapps_body_authenticating_ing">Verifiëren\u2026</string>
+    <string name="dream_sapps_body_contact_customer_service_to_complete_your_purchase">Neem contact op met de Klantenservice om uw aankoop te voltooien.</string>
+    <string name="dream_sapps_body_your_purchase_is_complete">Uw aankoop is voltooid.</string>
+    <string name="mids_sapps_body_waiting_ing">Wachten\u2026</string>
+    <string name="mids_sapps_header_samsung_in_app_purchase_abb">Samsung Kopen in app</string>
+    <string name="mids_sapps_header_update_galaxy_apps">Galaxy Apps bijwerken</string>
+    <string name="mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase">Er is een nieuwe versie beschikbaar. Galaxy Apps wordt bijgewerkt tot de laatste versie om deze aankoop te voltooien.</string>
+    <string name="mids_sapps_pop_an_invalid_value_has_been_provided_for_samsung_in_app_purchase">Er is een ongeldige waarde opgegeven voor Samsung Kopen in app.</string>
+    <string name="mids_sapps_pop_payment_canceled">Betaling geannuleerd.</string>
+    <string name="mids_sapps_pop_to_purchase_items_you_need_to_install_samsung_in_app_purchase_install_q">Als u artikelen wilt kopen, moet u Samsung Kopen in app installeren. Installeren?</string>
+    <string name="mids_sapps_pop_unable_to_open_samsung_in_app_purchase_msg">Kan Samsung Kopen in app niet openen. Ga naar Machtigingen, sta de vereiste machtigingen toe en probeer het opnieuw.</string>
+    <string name="mids_sapps_pop_unknown_error_occurred">Onbekende netwerkfout opgetreden</string>
+</resources>

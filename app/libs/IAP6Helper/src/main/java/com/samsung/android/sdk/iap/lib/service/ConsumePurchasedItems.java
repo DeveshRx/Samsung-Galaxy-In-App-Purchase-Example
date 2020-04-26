@@ -7,7 +7,6 @@ import com.samsung.android.sdk.iap.lib.R;
 import com.samsung.android.sdk.iap.lib.helper.HelperDefine;
 import com.samsung.android.sdk.iap.lib.helper.IapHelper;
 import com.samsung.android.sdk.iap.lib.listener.OnConsumePurchasedItemsListener;
-import com.samsung.android.sdk.iap.lib.listener.OnConsumePurchasedItemsListener;
 import com.samsung.android.sdk.iap.lib.vo.ConsumeVo;
 
 import java.util.ArrayList;
@@ -16,16 +15,15 @@ import java.util.ArrayList;
  * Created by sangbum7.kim on 2018-02-28.
  */
 
-public class ConsumePurchasedItems extends BaseService{
-    private static final String TAG  = ConsumePurchasedItems.class.getSimpleName();
+public class ConsumePurchasedItems extends BaseService {
+    private static final String TAG = ConsumePurchasedItems.class.getSimpleName();
 
     private static ConsumePurchasedItems mInstance = null;
     private static OnConsumePurchasedItemsListener mOnConsumePurchasedItemsListener = null;
-    private static String          mPurchaseIds          = "";
-    protected ArrayList<ConsumeVo> mConsumeList          = null;
+    private static String mPurchaseIds = "";
+    protected ArrayList<ConsumeVo> mConsumeList = null;
 
-    public ConsumePurchasedItems(IapHelper _iapHelper, Context _context, OnConsumePurchasedItemsListener _onConsumePurchasedItemsListener)
-    {
+    public ConsumePurchasedItems(IapHelper _iapHelper, Context _context, OnConsumePurchasedItemsListener _onConsumePurchasedItemsListener) {
         super(_iapHelper, _context);
         mOnConsumePurchasedItemsListener = _onConsumePurchasedItemsListener;
     }
@@ -39,29 +37,26 @@ public class ConsumePurchasedItems extends BaseService{
     }
 
     @Override
-    public void runServiceProcess(){
+    public void runServiceProcess() {
         Log.v(TAG, "succeedBind");
-        if ( mIapHelper != null )
-        {
-            if(mIapHelper.safeConsumePurchasedItems( ConsumePurchasedItems.this,
+        if (mIapHelper != null) {
+            if (mIapHelper.safeConsumePurchasedItems(ConsumePurchasedItems.this,
                     mPurchaseIds,
-                    mIapHelper.getShowErrorDialog() ) == true) {
+                    mIapHelper.getShowErrorDialog()) == true) {
                 return;
             }
         }
-        mErrorVo.setError(HelperDefine.IAP_ERROR_INITIALIZATION,mContext.getString(R.string.mids_sapps_pop_unknown_error_occurred));
+        mErrorVo.setError(HelperDefine.IAP_ERROR_INITIALIZATION, mContext.getString(R.string.mids_sapps_pop_unknown_error_occurred));
         onEndProcess();
     }
 
     @Override
-    public void onReleaseProcess(){
+    public void onReleaseProcess() {
         Log.v(TAG, "OwnedProduct.onReleaseProcess");
         try {
             if (mOnConsumePurchasedItemsListener != null)
                 mOnConsumePurchasedItemsListener.onConsumePurchasedItems(mErrorVo, mConsumeList);
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             Log.e(TAG, e.toString());
         }
     }

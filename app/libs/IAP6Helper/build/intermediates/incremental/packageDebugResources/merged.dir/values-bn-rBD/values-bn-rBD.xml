@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dream_sapps_body_authenticating_ing">সত্যায়ন করা হচ্ছে\u2026</string>
+    <string name="dream_sapps_body_contact_customer_service_to_complete_your_purchase">আপনার ক্রয় সম্পন্ন করতে গ্রাহক সেবায় যোগাযোগ করুন।</string>
+    <string name="dream_sapps_body_your_purchase_is_complete">আপনার ক্রয় সম্পন্ন হয়েছে৷</string>
+    <string name="mids_sapps_body_waiting_ing">অপেক্ষমাণ\u2026</string>
+    <string name="mids_sapps_header_samsung_in_app_purchase_abb">Samsung In-App Purchase</string>
+    <string name="mids_sapps_header_update_galaxy_apps">Galaxy Apps আপডেট করুন</string>
+    <string name="mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase">একটি নতুন সংস্করণ আছে৷ এই ক্রয় সম্পন্ন করতে Galaxy Apps সর্বসাম্প্রতিক সংস্করণে আপডেট করা হবে।</string>
+    <string name="mids_sapps_pop_an_invalid_value_has_been_provided_for_samsung_in_app_purchase">Samsung In-App Purchase-এর জন্য একটি অকার্যকর মান দেয়া হয়েছে৷</string>
+    <string name="mids_sapps_pop_payment_canceled">পেমেন্ট বাতিল হয়েছে৷</string>
+    <string name="mids_sapps_pop_to_purchase_items_you_need_to_install_samsung_in_app_purchase_install_q">আইটেম কেনার জন্য, আপনাকে Samsung In-App Purchase ইনস্টল করতে হবে৷ ইনস্টল করবেন?</string>
+    <string name="mids_sapps_pop_unable_to_open_samsung_in_app_purchase_msg">Samsung In-App Purchase খুলতে অক্ষম৷ ‘অনুমতি’-তে যান, তারপর প্রয়োজনীয় অনুমতিগুলো দিয়ে আবার চেষ্টা করুন৷</string>
+    <string name="mids_sapps_pop_unknown_error_occurred">অজানা ত্রুটি ঘটেছে।</string>
+</resources>

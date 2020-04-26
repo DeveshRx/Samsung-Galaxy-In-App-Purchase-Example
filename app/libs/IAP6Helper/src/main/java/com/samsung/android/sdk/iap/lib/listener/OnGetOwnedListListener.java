@@ -10,11 +10,11 @@ import java.util.ArrayList;
  * Callback Interface used with
  * {@link GetOwnedListTask}
  */
-public interface OnGetOwnedListListener
-{
+public interface OnGetOwnedListListener {
     /**
-     * Callback method to be invoked 
+     * Callback method to be invoked
      * when {@link GetOwnedListTask} has been finished.
+     *
      * @param _errorVO
      * @param _ownedList
      */

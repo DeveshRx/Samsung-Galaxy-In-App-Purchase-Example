@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dream_sapps_body_authenticating_ing">ಪ್ರಮಾಣೀಕರಿಸುತ್ತಿದೆ\u2026</string>
+    <string name="dream_sapps_body_contact_customer_service_to_complete_your_purchase">ನಿಮ್ಮ ಖರೀದಿಯನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು ಗ್ರಾಹಕ ಸೇವೆಯನ್ನು ಸಂಪರ್ಕಿಸಿ.</string>
+    <string name="dream_sapps_body_your_purchase_is_complete">ನಿಮ್ಮ ಖರೀದಿಯು ಪೂರ್ಣಗೊಂಡಿದೆ.</string>
+    <string name="mids_sapps_body_waiting_ing">ನಿರೀಕ್ಷಿಸುತ್ತಿದೆ\u2026</string>
+    <string name="mids_sapps_header_samsung_in_app_purchase_abb">ಸ್ಯಾಮ್‌ಸಂಗ್ ಇನ್-ಅನ್ವಯಿಸುವಿಕೆ ಖರೀದಿ</string>
+    <string name="mids_sapps_header_update_galaxy_apps">Galaxy Apps ನವೀಕರಿಸಿ</string>
+    <string name="mids_sapps_pop_a_new_version_is_available_galaxy_apps_will_be_updated_to_the_latest_version_to_complete_this_purchase">ಒಂದು ಹೊಸ ಆವೃತ್ತಿ ಲಭ್ಯವಿದೆ. ಈ ಖರೀದಿಯನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು Galaxy Appsನ್ನು ಇತ್ತೀಚಿನ ಆವೃತ್ತಿಗೆ ನವೀಕರಿಸಲಾಗುತ್ತದೆ.</string>
+    <string name="mids_sapps_pop_an_invalid_value_has_been_provided_for_samsung_in_app_purchase">ಸ್ಯಾಮ್‌ಸಂಗ್ ಇನ್-ಅನ್ವಹಿಸುವಿಕೆ ಖರೀದಿಗಾಗಿ ಅಮಾನ್ಯ ಮೌಲ್ಯವನ್ನು ಒದಗಿಸಲಾಗಿದೆ.</string>
+    <string name="mids_sapps_pop_payment_canceled">ಪಾವತಿಸುವಿಕೆ ರದ್ದಾಗಿದೆ.</string>
+    <string name="mids_sapps_pop_to_purchase_items_you_need_to_install_samsung_in_app_purchase_install_q">ಅಂಶಗಳನ್ನು ಖರೀದಿಸಲು, ನೀವು ಸ್ಯಾಮ್‌ಸಂಗ್‌ ಇನ್‌-ಆಪ್‌ ಪರ್ಚೇಸ್‌ ಅನ್ನು ಸ್ಥಾಪಿಸುವುದು ಅಗತ್ಯವಾಗಿರುತ್ತದೆ. ಸ್ಥಾಪಿಸುವುದೇ?</string>
+    <string name="mids_sapps_pop_unable_to_open_samsung_in_app_purchase_msg">Samsung ಇನ್-ಅನ್ವಯಿಸುವಿಕೆ ಖರೀದಿಯನ್ನು ತೆರೆಯಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಅನುಮತಿಗಳಿಗೆ ಹೋಗಿ, ನಂತರ ಕೆಳಗಿನ ಅನುಮತಿಗಳನ್ನು ಅನುಮತಿಸಿ ಹಾಗೂ ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ.</string>
+    <string name="mids_sapps_pop_unknown_error_occurred">ಅಜ್ಞಾತ ದೋಷ ಸಂಭವಿಸಿದೆ.</string>
+</resources>

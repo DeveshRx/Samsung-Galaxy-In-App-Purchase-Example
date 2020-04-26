@@ -1,4 +1,4 @@
-package  com.samsung.android.sdk.iap.v6.sample1.adapter;
+package com.samsung.android.sdk.iap.v6.sample1.adapter;
 
 import android.util.Log;
 
@@ -8,8 +8,8 @@ import com.samsung.android.sdk.iap.lib.listener.OnGetOwnedListListener;
 import com.samsung.android.sdk.iap.lib.vo.ConsumeVo;
 import com.samsung.android.sdk.iap.lib.vo.ErrorVo;
 import com.samsung.android.sdk.iap.lib.vo.OwnedProductVo;
-import  com.samsung.android.sdk.iap.v6.sample1.constants.ItemDefine;
-import  com.samsung.android.sdk.iap.v6.sample1.activity.MainActivity;
+import com.samsung.android.sdk.iap.v6.sample1.activity.MainActivity;
+import com.samsung.android.sdk.iap.v6.sample1.constants.ItemDefine;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,30 +19,28 @@ import java.util.Map;
  * Created by sangbum7.kim on 2017-08-17.
  */
 
-public class OwnedListAdapter extends ItemDefine implements OnGetOwnedListListener, OnConsumePurchasedItemsListener
-{
+public class OwnedListAdapter extends ItemDefine implements OnGetOwnedListListener, OnConsumePurchasedItemsListener {
     private final String TAG = OwnedListAdapter.class.getSimpleName();
 
-    private MainActivity        mMainActivity = null;
-    private IapHelper    mIapHelper = null;
+    private MainActivity mMainActivity = null;
+    private IapHelper mIapHelper = null;
 
-    private String              mConsumablePurchaseIDs = "";
+    private String mConsumablePurchaseIDs = "";
     private Map<String, String> consumeItemMap = new HashMap<String, String>();
 
     public OwnedListAdapter
             (
                     MainActivity _activity,
                     IapHelper _iapHelper
-            )
-    {
+            ) {
         mMainActivity = _activity;
         mIapHelper = _iapHelper;
     }
+
     @Override
-    public void onGetOwnedProducts(ErrorVo _errorVo, ArrayList<OwnedProductVo> _ownedList )
-    {
+    public void onGetOwnedProducts(ErrorVo _errorVo, ArrayList<OwnedProductVo> _ownedList) {
         Log.v(TAG, "onGetOwnedProducts");
-        if( _errorVo != null) {
+        if (_errorVo != null) {
             if (_errorVo.getErrorCode() == IapHelper.IAP_ERROR_NONE) {
                 int gunLevel = 0;
                 boolean infiniteBullet = false;
@@ -50,7 +48,7 @@ public class OwnedListAdapter extends ItemDefine implements OnGetOwnedListListen
                     for (int i = 0; i < _ownedList.size(); i++) {
                         OwnedProductVo product = _ownedList.get(i);
 
-                        Log.d(TAG,product.dump());
+                        Log.d(TAG, product.dump());
                         if (product.getIsConsumable()) {
                             try {
                                 if (consumeItemMap.get(product.getPurchaseId()) == null) {
@@ -83,11 +81,9 @@ public class OwnedListAdapter extends ItemDefine implements OnGetOwnedListListen
                     mIapHelper.consumePurchasedItems(mConsumablePurchaseIDs, OwnedListAdapter.this);
                     mConsumablePurchaseIDs = "";
                 }
-            }
-            else
-            {
-                Log.e(TAG, "onGetOwnedProducts ErrorCode [" + _errorVo.getErrorCode() +"]");
-                if(_errorVo.getErrorString()!=null)
+            } else {
+                Log.e(TAG, "onGetOwnedProducts ErrorCode [" + _errorVo.getErrorCode() + "]");
+                if (_errorVo.getErrorString() != null)
                     Log.e(TAG, "onGetOwnedProducts ErrorString[" + _errorVo.getErrorString() + "]");
             }
         }
@@ -95,7 +91,7 @@ public class OwnedListAdapter extends ItemDefine implements OnGetOwnedListListen
 
     @Override
     public void onConsumePurchasedItems(ErrorVo _errorVo, ArrayList<ConsumeVo> _consumeList) {
-        if(_errorVo != null) {
+        if (_errorVo != null) {
             if (_errorVo.getErrorCode() == IapHelper.IAP_ERROR_NONE) {
                 try {
                     if (_consumeList != null) {
@@ -115,8 +111,8 @@ public class OwnedListAdapter extends ItemDefine implements OnGetOwnedListListen
                     Log.e(TAG, "onConsumePurchasedItems: Exception :" + e);
                 }
             } else {
-                Log.e(TAG, "onConsumePurchasedItems > ErrorCode [" + _errorVo.getErrorCode() +"]");
-                if(_errorVo.getErrorString()!=null)
+                Log.e(TAG, "onConsumePurchasedItems > ErrorCode [" + _errorVo.getErrorCode() + "]");
+                if (_errorVo.getErrorString() != null)
                     Log.e(TAG, "onConsumePurchasedItems > ErrorString[" + _errorVo.getErrorString() + "]");
             }
         }

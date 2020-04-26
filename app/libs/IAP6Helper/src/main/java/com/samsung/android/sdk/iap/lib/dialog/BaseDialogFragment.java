@@ -25,15 +25,14 @@ import com.samsung.android.sdk.iap.lib.R;
 // --------------
 
 public class BaseDialogFragment extends DialogFragment implements View.OnClickListener {
+    private static final String KEY_DIALOG_TITLE = "dialog_title";
+    private static final String KEY_DIALOG_MSG = "dialog_message";
+    private static final String TAG = "BaseDialogFragment";
     private String title;
     private String message;
     private Runnable onClickRunnable = null;
     private Activity activity = null;
     private int dialogWidth;
-
-    private static final String KEY_DIALOG_TITLE = "dialog_title";
-    private static final String KEY_DIALOG_MSG = "dialog_message";
-    private static final String TAG = "BaseDialogFragment";
 
     public static BaseDialogFragment newInstance(String title, String message) {
         Log.d(TAG, "newInstance");
